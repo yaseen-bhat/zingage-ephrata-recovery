@@ -10,6 +10,8 @@ The final `ephrata_recovery_package.zip` contains:
 
 The diagnosis separates recorded facts from hypotheses. The workbook is the capacity ledger and day-by-day schedule. The handoff identifies actions, owners, prerequisites, evidence, customer communication drafts, and escalation boundaries.
 
+The completed allocation is 47h Ephrata, 10h Durant, 5h Medford, 5.5h shared coordination, and 14h protected queue coverage. Thirty nonengineering hours remain contingency; Nate's other 15h are preserved for the wider account book. The package is ready for review and submission before the user's 3:00 PM deadline.
+
 ## Status and assumptions
 
 All deployment actions remain proposed. No live account repair, customer message, offboarding action, or restart has been performed in the simulation.
@@ -29,3 +31,5 @@ The original [Zingage FDE Framework](https://docs.google.com/document/d/1w_PuN2W
 ## Rebuild and verification
 
 The workbook is authored with Codex's bundled `@oai/artifact-tool` runtime. With that dependency available, run `build/build_workbook.mjs` using its bundled Node executable. The builder recalculates the workbook, tests representative input changes and restores them, exports and reimports the XLSX, and produces visual previews. Previews and dependencies are not committed. Verification results are committed in `verification/`.
+
+Twelve input-change tests passed, with no formula errors. All four tabs received visual review. `verification/release_checks.json` records the required file names, exact ZIP-byte verification, artifact hashes, unchanged source-copy checks, and native Google Doc readback. Excel desktop was not opened, and no live account outcome is claimed. Run `build/package_release.py` with Python to reproduce the archive from the three final deliverables. The ZIP contains only those required files at its root; supporting references and build/verification materials remain in the repository.

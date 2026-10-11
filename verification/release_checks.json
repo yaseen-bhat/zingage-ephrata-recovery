@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-10-11T20:47:16.836712+00:00",
+  "package": "ephrata_recovery_package.zip",
+  "package_sha256": "db072370baf88217134612a8c86bd5d9db1f0d6d4d39ffdbcc3dae6899a30e4b",
+  "package_bytes": 43042,
+  "required_files_at_root_only": true,
+  "crc_and_exact_bytes_passed": true,
+  "deliverables": [
+    {
+      "name": "ephrata_diagnosis.md",
+      "bytes": 14786,
+      "sha256": "50421ed4403af1490a61b4db47fe0e18ecbe3ce2a68270c5a80b30d4e2b89c45"
+    },
+    {
+      "name": "ten_day_operating_plan.xlsx",
+      "bytes": 32027,
+      "sha256": "c60fb5e3df14d5c006ab66a7f0c05057d076b05361e70b18afa0f46aa65f6225"
+    },
+    {
+      "name": "ephrata_handoff.md",
+      "bytes": 16588,
+      "sha256": "ef450710159af78d27a8407bf00c445ad1397828f10179eccf040855e6c86dd0"
+    }
+  ],
+  "allocation_hours": {
+    "Ephrata": 47,
+    "Durant": 10,
+    "Medford": 5,
+    "Portfolio": 5.5,
+    "Coverage": 14
+  },
+  "nonengineering_contingency_hours": 30,
+  "engineering_hours_preserved_for_wider_book": 15,
+  "mutation_tests_passed": 12,
+  "base_formula_checks_passed": 11,
+  "formula_count_in_export": 507,
+  "workbook_tabs": [
+    "Capacity",
+    "Daily plan",
+    "Work log",
+    "Inputs"
+  ],
+  "native_excel_opened": false,
+  "live_customer_workflows_executed": false,
+  "references": [
+    {
+      "name": "Deployment team capacity and decision boundaries for the ten-business-day window.md",
+      "sha256": "d3508402245232ae5bd75f33a5cb296a8fe598f9fd5dd2e18762cedd175ba69e",
+      "original_unchanged": true
+    },
+    {
+      "name": "Senior Helpers Ephrata \u2014 Account History.md",
+      "sha256": "86b71bed69fd57561cddd0d9c9c1f4fc7edc3e8a3e8539273b422f6f9fc5843f",
+      "original_unchanged": true
+    },
+    {
+      "name": "Visiting Angels Durant and Affordable at Home Care Medford's account histories.md",
+      "sha256": "c01b0b2fd2c0edc8d4ea7290701875c6c0a28d51f490510b122ed26694ff0ab3",
+      "original_unchanged": true
+    }
+  ],
+  "google_doc_revision": "AHj4eMSM6cgynzUmUwTpfvbbQcccNpRWBnp7Sm4URb8N7KUH-cV0j5LlNy_JN7ud6ldNQnlckCRVrMh3g_vO5G1Fi1SNF-wP8pUJbh9RtK4",
+  "google_doc_readback_passed": true
+}

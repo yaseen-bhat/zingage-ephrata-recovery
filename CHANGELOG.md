@@ -63,3 +63,13 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** The record supplies a final service date, but no time of day. Avoid treating a scheduled deactivation date as permission to stop service before the authorized cutoff.
 
 **Validation:** Rebuilt the affected workbook. The same twelve mutation tests and XLSX export/reimport passed, with no formula errors. Account totals remain 47h Ephrata, 10h Durant, 5h Medford, 5.5h shared coordination, and 14h protected coverage.
+
+## 007 — October 11, 2026, 1:50 PM PDT — Package and verify the submission snapshot
+
+**Files:** `ephrata_recovery_package.zip`, `build/package_release.py`, `verification/release_checks.json`, `README.md`.
+
+**Change:** Created the final archive with exactly the three required deliverables at its root. Added repeatable packaging and a verification report containing each artifact's SHA-256 hash, package hash, allocation totals, source-copy checks, and Google Doc revision. Documented the final allocation and validation limits in the README.
+
+**Why:** Deliver a concrete submission package that can be traced to this repository version and checked independently. Keep supporting reference/build files outside the required submission archive.
+
+**Validation:** ZIP names, CRCs, and exact embedded bytes passed. All three source copies match the unchanged Downloads originals. The exported workbook has four named tabs and 507 formulas; calculation mode is not manual. Twelve input-change tests and eleven base checks passed. Native Doc readback matched the playbook and confirmed both existing tabs preserved. Reviewed the final cutoff prerequisite/evidence cells for legibility. Confirmed the GitHub repository is private with `main` as default. Excel desktop and live customer workflows were not executed. This commit is the submission snapshot; the final push is verified against its commit ID.
