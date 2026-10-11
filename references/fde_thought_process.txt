@@ -1,0 +1,675 @@
+FDE Problem-Solving Framework
+Understand the workflow → diagnose the constraint → deliver an intervention → verify the outcome
+Client / organization: Senior Helpers Ephrata, Visiting Angel’s Durant, Home care’s Medford
+Time available: 10 days (2.5 hours for the hackathon) 
+Planning period: Sept 8–21, 2026 (10 business days)
+Required deliverables: You are the Deployment Strategist & Customer Operations, working from the September 8, 2026 snapshot above. The next ten business days of your team's capacity are yours to allocate across Ephrata, Durant, and Medford: you decide what happens now, what waits, and you own telling Ephrata's contact what to expect next. You can commit the team's existing hours and make the calls the record already supports; a new commitment beyond what's already been said to a customer, or a change to the team's roster, is not yours to make alone.
+Step 1: Define the problem and desired outcome
+Purpose: Establish what needs to change before choosing a solution.
+Fill in
+The stated problem:
+Senior Helpers Ephrata purchased zingage to reduce staff after hour workload, but the product has so far failed to deliver that outcome. 
+Carol ann frees is still manually checking the dashboard early morning. Caregivers are not reliably marked unavailable, and callsthat should reach on-call staff are no reaching at the moment. 
+Has been a recurring problem since august even though we’ve resolved relevant tickets and wellsky is showcasing that accounts are connected. 
+The expected outcome:
+For the expected outcome I want to say that we want ephrata, after our workflow function, to work reliably enough that Carol ann won't have to manually intervene and the system itself is just doing its job. We'll break that down into three bullets specifically:
+Caregiver availability is properly represented.
+Calls will reach the relevant on-call staff.
+Failures are detected and escalated in the right manner.
+Carol Ann will be able to trust this workflow without routinely checking it.
+The current reality:
+Closed tickets and the working integration suggest either admin issue or a technical issue that we are still trying to debug. So, the customer's workflow is still not functioning.
+Primary user / beneficiary:
+Primary beneficiary would be Carol Fries, of course. The secondary would be the caregivers and the business beneficiary would obviously be Ifrata since we're helping reduce the medical revival after-hours coverage for them.
+Their job to be done:
+The job that we have to get done would be: when an after-hours staffing call-routing situation occurs, the agent needs to engage to correctly identify the availability and route those calls to the necessary person.
+Operational consequence:
+Carol ann wastes time checking work that the system should alr handle
+Calls may fail to reach intended staff, which will lead to reduced confidence in us (zingage)
+Our deployment team spend too much time revisitng closed cases
+Required deliverables:
+Need ephrata_diagnosis.md, ten_day_operating_plan.xlsx and ephrata_handoff.md in ephrata_recovery_package.zip. Basically explain what's actually broken, show where everyone's hours go, and make a plan someone else can pick up and run.
+Constraints:
+For this hackathon we have 2 hours flat to achieve this solution 
+10 business days
+5 deployment team members 
+3 accounts competing for attention rn
+Durant’s previously agreed cancellation and final service date. Medford’s unanswered restart request. No independent authority to increase staffing or make new customer commitments beyond those alr documented
+Questions to ask / answer
+What does success mean in observable terms?
+Not simply closing tickets but demonstrating that availability and routing work and that carol ann’s manual work is handled
+Who experiences the problem, and who owns the outcome?
+Recurring since august, carol ann and ephrata expereince the problem, we own the outcome
+How often does the problem occur?
+Sept 8 reports three mornings that week + weekend misroute. Exact rate unknown bc no denominator.
+How severe is its impact?
+High importance bc it shos failures at the central purpose of our deployment
+What is the current workaround?
+Carol ann manually changes status and looks up/calls the relevant on-call person.
+Why does solving this matter now?
+Same complaint after we said tickets were closed, plus Durant/Medford commitments need attention rn.
+Which constraints are fixed, and which can change?
+Fixed ceilings, 14h queue, 9h Ephrata engineering, Durant Sept 18. Sequence can change within hours; bigger commitments need approval.
+Investigate
+The brief and existing commitments.
+User expectations and current behavior.
+Definitions of success.
+Relevant deadlines and dependencies.
+Initial problem statement
+When Fry operates its after-hours coverage workflow, Carolin uses caregiver availability and call routing to function reliably without manual oversight. However, recurring availability and routing failures prevent that outcome, forcing manual checks and undermining trust in Zingage's service.
+Checkpoint: Can I explain the problem without naming a proposed solution?
+Step 2: Organize the evidence
+Purpose: Separate established facts from assumptions.
+Evidence map
+Source
+What it establishes
+What it does not establish
+Follow-up needed
+Aug 11/14 engineering notes
+Manual sync + daytime call passed
+Not actual overnight reliability
+Trace shift-end + after-hours cases
+Aug 25 adoption snapshot
+3 of 14 show admin closeout
+Not proven to be Sept's two
+Match IDs and event times
+Sept 8 email + HS-48251
+Both symptoms reported again
+Cause/rate still unknown
+Get latest incident packet
+
+Claim register
+Claim
+Status
+Supporting evidence
+Confidence
+Relief still not verified
+Reported + inferred
+Sept 8 + closure history
+High on gap
+Adoption or config causes recurrence
+Unknown
+Aug roster drift/adoption
+Need traces
+
+Observed: Directly inspected or witnessed.
+Reported: Described by a stakeholder or document.
+Inferred: A conclusion drawn from evidence.
+Unknown: Not yet established.
+Questions to ask / answer
+Does the evidence show intended behavior, actual behavior, or outcomes?
+Mostly reported behavior + narrow technical checks. Not sustained customer outcome.
+Are the sources describing the same time period?
+No, December goal, August tests and Sept recurrence are different snapshots.
+Do any sources contradict one another?
+Connected/green vs customer pain looks contradictory, but they're measuring different things.
+Is one example being treated as a general pattern?
+Yes, one afternoon sync and daytime call can't stand for the whole overnight workflow.
+Which missing fact could change my recommendation most?
+Latest event/call trace and intended shift-end trigger.
+Investigate
+Records, logs, examples, and sample data.
+User feedback and stakeholder accounts.
+Chronology of changes and incidents.
+Existing documentation and outstanding blockers.
+Checkpoint: Can I trace each major conclusion to evidence?
+Step 3: Map the current workflow
+Purpose: Identify where intended operation diverges from actual operation.
+Workflow boundaries
+Trigger: A caregiver finishes a shift, or an after-hours call comes in.
+Completion condition: Correct unavailable status in wellsky, call reaches current on-call staff, and carol ann doesn't need to fix/check it herself.
+People involved: Carol ann, caregivers, on-call staff, Priya, Nate, Diego, Jordan and me for capacity/escalation.
+Systems involved: Casey, Riley, wellsky, caregiver app, roster doc, HubSpot tickets and call logs.
+Workflow map
+Step
+Owner
+Input / system
+Expected action
+Actual behavior
+Output / handoff
+Failure / consequence
+1
+Caregiver / Casey
+Shift-end event
+Generate availability change
+Trigger unknown
+Casey job
+Missing event?
+2
+Casey / Nate
+Mapping + wellsky
+Persist unavailable
+Manual correction reported
+Morning status
+Carol ann fixes it
+3
+Riley / roster owner TBD
+Approved roster
+Route after-hours correctly
+Call went to admin
+On-call receipt
+Wrong recipient
+4
+Priya
+Tests + customer feedback
+Verify relief before closing
+Closed pending confirmation
+Outcome gate
+Repeated recovery
+
+Trace a concrete example
+Example / incident: Sept 8 email + HS-48251.
+What happened: Two caregivers needed manual correction on three mornings that week, and the weekend call went to carol ann instead of Marcus.
+First meaningful failure: We can see wrong status and recipient. The earlier technical step that caused each is still unknown rn.
+Who intervened: Carol ann, the person we were supposed to give time back to.
+Workaround used: Manually mark unavailable; earlier August incident she looked up Denise and called her herself.
+What the example demonstrates: Both symptoms are back after ticket closure, so the actual outcome isn't verified.
+Limits of the example: Doesn't prove the same root cause or tell us the failure rate. Need IDs, timestamps and traces.
+Questions to ask / answer
+Where does the first meaningful failure occur?
+Visible failure is stale status/wrong recipient. Earlier technical point still unknown.
+Is required information available at that point?
+Current roster, affected IDs and timestamps need confirmation.
+Does the owner have access, authority, and capacity?
+Named owners exist, but access/daily availability need checking; Nate capped at 9h.
+Is the next action clear?
+Collect incident packet, trace paths separately, then decide supported correction/testing.
+Where does work get delayed, repeated, or returned?
+Customer repeats complaint; team revisits alr closed cases.
+What happens when the normal path fails?
+Carol ann intervenes rn; approved fallback/exception ownership needs confirmation.
+Would the same failure recur under the same conditions?
+It has recurred, but we haven't proved identical conditions/cause.
+Workflow finding
+The workflow breaks before reliable status/routing reaches the customer, but the exact technical point is still unknown. We also closed the outcome before confirming it, so carol ann is still doing the checking and recovery herself.
+Checkpoint: Have I located a specific failure?
+Step 4: Diagnose the underlying constraint
+Purpose: Explain why the desired outcome is not happening.
+Investigate possible constraints
+Category
+Question
+Technical behavior
+Does the system perform the intended action correctly?
+Not proven overnight rn; trace actual events and recipients.
+Information
+Is required information available, accurate, and current?
+Historical stale roster; current Sept inputs need confirmation.
+Ownership
+Is someone accountable for the next action?
+Priya owns recovery; customer roster maintainer still TBD.
+Capacity
+Can the owner complete the work when needed?
+Nate cap9h, Diego14h queue protected; no hidden staffing.
+Adoption
+Are people using the intended workflow? Why or why not?
+3/14 admin closeouts, but match latest IDs before blaming adoption.
+Access / authority
+Can the owner take the required action?
+Confirm live permissions; extra promises/hours need approval.
+Exceptions
+What happens when the normal path fails?
+Approved fallback/retry and business-hours owner need documenting.
+Expectations
+Does delivered behavior match the expected scope?
+Purchased relief is clear; delivered relief still not verified.
+
+Compare hypotheses
+Hypothesis
+Supporting evidence
+Contradicting evidence / gap
+Distinguishing check
+Consequence if true
+Shift-end/adoption path
+3 admin closeouts
+Latest IDs unknown
+Trace affected vs compliant
+Target actual failed step
+Roster/rotation/fallback
+April config was stale
+Sept config unknown
+Compare current roster + call trace
+Correct supported config
+Premature outcome closure
+Daytime tests + Sept repeat
+Doesn't explain technical cause
+Representative cases + relief
+Keep outcome gate open
+
+Questions to ask / answer
+Is the visible pain point a symptom of an earlier failure?
+Yes, manual checking is downstream of wrong status/routing and weak verification.
+If I fixed that symptom, would the desired outcome occur?
+Flipping status once won't fix routing or prove lasting relief.
+What would still prevent success?
+Missing trigger/roster ownership, unresolved technical cause or incomplete test coverage.
+Does my explanation account for the available examples?
+Verification gap explains premature closure; adoption alone doesn't explain misrouting.
+What evidence would prove my diagnosis wrong?
+Representative traces + sustained relief would show recovery; cause-specific tests could reject each technical hypothesis.
+Diagnosis
+Primary constraint: We treated narrow technical checks as proof that the customer's workflow was fixed.
+Contributing factors: Historical stale roster, possible shift-end/adoption issues, and no clear sustained verification gate.
+Supporting evidence: Aug 11 manual sync, Aug 14 daytime routing test, Aug 18 closure pending confirmation, Sept 8 recurrence.
+Confidence and reason: High on the verification gap. Low on exact technical cause bc we haven't traced the latest failures.
+What would change my view: Incident traces showing where things went wrong + representative overnight tests and carol ann confirming relief.
+Causal explanation
+Because we closed based on connected status and narrow tests, the real overnight workflow wasn't fully verified. Any remaining failure falls back on carol ann, preventing the after-hours relief she bought.
+Checkpoint: Does the proposed intervention address this causal chain?
+Step 5: Resolve consequential uncertainty
+Purpose: Ask questions that change decisions.
+Priority questions
+Question
+Person / source
+Decision affected
+Blocks action?
+Approach if unanswered
+Which IDs/times + current roster?
+Carol ann / logs
+What Nate investigates
+Yes for targeted tests
+Collect what exists; keep gaps open
+What triggers shift-end status?
+Nate / product behavior
+Adoption vs event/write issue
+Yes for diagnosis
+Don't blame caregivers rn
+Actual availability / approver?
+Team + me
+Feasible daily plan
+Yes for commitments
+Use fixed ceilings; confirm split
+
+Questions for users
+Walk me through the last time this happened.
+Ask for the latest shift-end and weekend call timestamps/IDs, not a vague 'is it better'.
+What did you have to do personally?
+We know she marked two unavailable; ask minutes and routing recovery steps.
+Which step required the most effort?
+Need her answer; don't invent how long the dashboard check took.
+What happened as a result?
+Reported continued manual work + lost trust. No clinical outcome established.
+What did you do to recover?
+Manual status correction; August she looked up Denise and called her.
+What would make an improved workflow useful and trustworthy?
+Correct overnight behavior, visible exception ownership and no routine need to check.
+Questions for operators
+Who owns each step?
+Priya outcome, Nate technical, Diego exceptions, Jordan other accounts/backup, me priorities.
+What can you complete independently?
+Allocate existing hours, schedule bounded check-in/scoping, restate Durant exit.
+Where do you lack information, access, or authority?
+Live access/current inputs to confirm; extra engineer time and new promises need approval.
+Which exceptions recur?
+Stale availability and misrouted calls; exact patterns need traces.
+What happens when the primary owner is unavailable?
+Jordan proposed backup; confirm capacity and customer-side backup before relying on it.
+Questions for technical / delivery teams
+What is implemented versus verified in actual use?
+Artifacts are built/tested; live workflow and customer relief aren't verified.
+What remains blocked, and by whom?
+Current IDs/roster/access need confirmation with carol ann/team. Extra engineering or commitments go through me for approval.
+Which work requires specialist skills?
+Wellsky permissions/mappings and Riley config need Nate.
+What dependencies or commitments affect delivery?
+Durant export Sep 11/exit Sep 18; Medford board Sep 22; Ephrata tests need inputs.
+What capacity is actually available?
+7.5h me, 61h strategists, Diego 20h project +14h queue, Nate up to9h Ephrata.
+Checkpoint: Am I resolving uncertainty that changes the plan?
+Step 6: Choose the smallest meaningful intervention
+Purpose: Select a narrow piece of work that produces a useful, verifiable outcome.
+Compare options
+Intervention
+Constraint addressed
+Expected outcome
+Effort / skills
+Dependencies
+Verification
+Another manual resync
+One stale status
+Maybe temporary correction
+Nate time
+Access
+Not enough alone
+Bounded recovery + verification
+Unknown failure + closure gap
+Evidence of actual relief
+47h, incl Nate 9h
+Roster/IDs/access
+Traces + observation
+Broad rebuild/full restart
+Potential wider scope
+Possible longer-term improvement
+Unbudgeted
+Approval + diagnosis
+Deferred
+
+Questions to ask / answer
+Which intervention removes the most consequential constraint?
+Bounded recovery with actual verification, starting routing then availability.
+Does it improve the user’s outcome?
+Only if it removes required manual work, not just changes ticket status.
+Can it be completed with available resources?
+Investigation/verification fits planned hours; full repair isn't guaranteed.
+Does it unlock dependent work?
+Yes, readiness evidence gates the observation and handoff.
+Can it be tested within the available time?
+Initial tests within timebox; durable outcome conditional on readiness/sample.
+Does it require a technical change, an operational change, or both?
+Likely both, but technical change depends on findings; ownership/verification can start now.
+Scope
+Chosen intervention: A bounded recovery loop. Trace routing first, then availability, correct only what evidence supports, and verify carol ann's actual mornings.
+Why this comes first: Same issues came back, and the misrouted call is consequential. Another resync alone doesn't explain it.
+Included: Incident packet, current roster check, 9h engineering timebox, adoption check, real workflow tests and customer verification.
+Deferred: Extra engineering/custom automation, Medford production restart, and any new customer guarantees without approval.
+Remaining limitations: 9h may only get us a diagnosis. No live fixes or customer acceptance have happened in this simulation.
+Scope statement
+We will run a bounded recovery for carol ann, addressing the verification gap and investigating the actual failure paths, so availability and routing can be checked under real shift-end and after-hours conditions. Not promising a fix-by date rn.
+Acceptance criteria
+Current approved roster, affected caregiver IDs/times, access, intended shift-end trigger and agreed test/fallback rules.
+Correct status persists in wellsky; current on-call staff receives the call across after-hours and rotation cases.
+Carol ann no longer needs routine manual corrections/checking, confirmed by her and the evidence.
+Exceptions have an owner and next step; no silent permanent fallback to carol ann.
+Before/after traces, expected vs actual tests, representative observation and customer confirmation.
+Checkpoint: Is the intervention small enough to complete and substantial enough to help?
+Step 7: Allocate resources and sequence work
+Purpose: Make delivery feasible and tradeoffs explicit.
+Available capacity
+Person / role
+Skills
+Available capacity
+Existing commitments
+Net capacity
+Me / Priya + Jordan
+Priorities / deployment
+7.5h + 61h
+Already net of other work
+68.5h combined
+Diego / Nate
+Support / integrations
+34h / 24h
+14h queue / 15h wider book
+20h project / Ephrata cap 9h
+
+Consistent capacity unit: Hours, with person/day limits as well as total hours.
+Work demand
+Workstream
+Required outcome
+Deadline
+Consequence of delay
+Effort
+Dependency / skill
+Ephrata
+Investigate + conditional verify
+Sept 21 review
+Manual work continues
+47h
+Nate cap + incident access
+Durant / Medford
+Exit / restart scoping
+Sep 11 export; Sep 18 exit / Sep 22 board
+Missed exit / proposal delay
+9h / 6h
+Export format / EVV scope
+
+Questions to ask / answer
+Which commitments are fixed?
+Durant agreed Sep 18 + export target Sep 11; existing coverage/authority boundaries.
+What minimum work must be protected?
+Diego14h queue, Durant9h exit allocation and minimum customer communication.
+Which person or skill is the bottleneck?
+Nate's engineering time; 9h is lower-bound routing+Wellsky audit.
+What can proceed while dependencies are unresolved?
+Incident collection, adoption outreach, Durant exit and Medford scoping.
+What gets delayed by this prioritization?
+Full Medford restart, custom Ephrata automation and extra engineering.
+Is contingency capacity needed?
+Yes,30h nonengineering reserve with named reassignment; doesn't raise engineering cap.
+Allocation
+Workstream / reserve
+Capacity
+Outcome achieved or protected
+Tradeoff
+Ephrata / Durant / Medford
+47h / 9h / 6h
+Recovery plan / exit / scoped response
+No guaranteed repair/restart
+Queue / coordination
+14h / 5.5h
+Coverage / cross-account planning
+No borrowing queue time
+Contingency
+30h nonengineering
+Absorb approved reassignment
+Not extra Nate hours
+Total
+111.5h relevant envelope
+81.5h scheduled + 30h reserve
+Nate's other 15h stay wider book
+
+Allocation rationale: Ephrata gets most effort bc it's the recurring promised-outcome failure. Durant's agreed exit stays protected, Medford gets an actual response/scoping plan, and we keep reserve.
+If capacity is lower than assumed: Recheck named person/day availability, protect queue coverage and Durant commitments, defer optional work and resize the recovery. Don't assume hidden slack.
+Reallocation trigger and owner: Me if capacity drops, a dependency blocks work, or Nate forecasts more than 9h. Record the reassignment and recheck the workbook first.
+Checkpoint: Does the plan fit total capacity and individual availability?
+Step 8: Build or implement the working intervention
+Purpose: Complete a usable path from input or trigger to outcome.
+Working path
+Input / trigger: Sept 8 recurrence, affected IDs/timestamps, current approved roster and access.
+Processing / action: Trace Riley and Casey/wellsky separately, document supported correction, retest and observe.
+Output / result: Diagnosis, hours plan and executable handoff. Live outcome is still pending.
+User's next action: Carol ann supplies the incident details/current roster and joins the bounded verification check-in.
+Failure and recovery behavior: Keep HS-48251 open, log blocker/owner/next checkpoint. Escalate extra engineering or new commitments.
+Real components: Supplied case records and the built diagnosis, workbook and handoff.
+Simulated or manually supplied components: Live logs/config changes, customer replies, tests and acceptance haven't happened. Capacity figures are assessment assumptions.
+Execution plan
+Action
+Owner
+Dependency
+Due
+Completion evidence
+Verifier
+If blocked
+Incident packet + response
+Priya / Diego
+IDs, roster, access
+Sep 8–9
+Known/unknown + next step
+Priya
+Request missing input
+Routing then availability
+Nate / Priya
+Approved inputs
+Sep 9–11
+Traces/tests + hours
+Jordan / Priya
+Stop at 9h; escalate
+Observation + handoff
+Priya / Diego / Jordan
+Readiness gate
+Sep 14–21
+Sample + owner demo
+Carol ann / Priya
+Keep outcome open
+
+Questions to ask / answer
+Can the owner start without further interpretation?
+Handoff gives sequence/owner/next step. Confirm inputs before starting.
+Are prerequisites completed first?
+IDs, current approved roster, access and test rules first.
+Does the owner have access and authority?
+Need confirmation; don't assume connected means effective write permissions.
+What proves the action is complete?
+Evidence attached, actual hours recorded and next gate clear.
+What proves it produces the intended behavior?
+Expected/actual final status or recipient receipt under relevant conditions.
+What happens if it fails or misses its deadline?
+Record blocker and next checkpoint; escalate sized request, no new fix-by promise.
+Milestones
+Prerequisites ready by: Internal target Sept 8–9; access/current roster need confirmation.
+Core path working by: Sept 11 readiness checkpoint, conditional on findings. Not a promised repair date.
+Tests completed by: Aim for Sept 11 initial tests within the 9h cap; flag anything unrun.
+Outcome reviewed by: Sept 21, using Sept 14–18 observation if ready.
+Handoff completed by: Sept 21 internal target, only accepted if readiness gates pass.
+Checkpoint: Does the intervention work from beginning to end?
+Step 9: Test behavior and verify value
+Purpose: Determine whether the intervention works and helps.
+Testable hypothesis
+If we trace and verify the actual after-hours workflow instead of just closing tickets, carol ann's required manual work should drop bc the failure and exception paths are actually accounted for.
+Three levels of success
+Implementation: Approved config/trigger/mappings and any correction documented with rollback.
+Operation: Relevant shift-end, after-hours, rotation and fallback cases work with evidence.
+User outcome: Carol ann confirms she doesn't need routine checks/corrections anymore.
+Measures
+Measure
+Baseline / source
+Target
+Measurement method
+Owner
+Required manual work
+3 mornings reported; minutes unknown
+Proposed zero corrections
+Daily cases + minutes + confirmation
+Priya
+Status / routing
+Repeated symptoms; rate unknown
+Correct eligible observed cases
+Expected/actual + denominator
+Nate / Diego
+Exceptions
+Handling unknown
+Owner + next step for each
+Tracker review
+Diego
+
+Test cases
+Case
+Expected behavior
+Actual result / evidence
+Follow-up
+Typical case
+Correct shift-end status and recipient
+Not run live
+Trace + verify
+Missing information
+Hold affected test; get approved input
+Not run
+Record blocker
+Ambiguous input
+Resolve trigger/roster before scoring
+Not run
+Ask owner
+Exception / edge case
+Rotation boundary + approved no-answer path
+Not run
+Controlled agreed test
+System or process failure
+Detect gap; assign owner/retry/escalation
+Not run
+Document supported recovery
+
+Questions to ask / answer
+What result would show improvement?
+No required corrections/misroutes in eligible sample + carol ann confirms relief.
+Could the metric improve without helping the user?
+Yes, closed tickets/no sync errors can improve while she still does manual work.
+Are the examples representative?
+Need affected and compliant caregivers, after-hours/rotation and exceptions.
+Is there enough evidence to draw a conclusion?
+Not yet for live outcome. Two good mornings weren't enough.
+What would constitute failure?
+Recurring wrong status/recipient or continued need for manual checking.
+Are targets confirmed or proposed?
+Proposed acceptance targets to agree, not contractual SLAs.
+What still requires real-world user testing?
+All live behavior, observation, customer acceptance and receiving-owner demo.
+Observation period: Proposed five business mornings Sept 14–18 + retrospective Sept 12–13 weekend evidence, only if ready Sept 11. Recurrence resets the relevant sample.
+Acceptance owner: Priya owns the gate, with carol ann confirming actual relief.
+If results are inconclusive: Keep recovery open, name the missing case/access/confirmation and size the next observation or technical step.
+Checkpoint: Am I proving value as well as technical completion?
+Step 10: Prepare for independent use
+Purpose: Make the intervention reliable without continuous involvement from the delivery team.
+Questions to ask / answer
+Who owns normal operation?
+Priya outcome; customer roster owner to nominate; Diego business-hours intake.
+Who provides backup coverage?
+Jordan proposed team backup; customer backup still TBD.
+Which exceptions require specialist support?
+Write/permission/event/config faults need Nate within approved capacity.
+Are instructions and access available?
+Handoff exists; live access and receiving-owner readiness still need proof.
+How will failures be detected?
+Scheduled evidence review + exception records. No new overnight staffing assumed.
+Who owns escalation and prioritization?
+Me for prioritization and routing approvals; Priya keeps recovery status honest.
+What still requires help from the delivery team?
+Technical faults, missing inputs or acceptance gaps remain funded support dependencies.
+Handoff
+Operating owner: Priya for outcome; customer roster maintainer to confirm with carol ann; Diego for business-hours exceptions.
+Backup: Jordan for peer review/handoff; customer-side backup still needs nomination.
+Escalation trigger and recipient: Repeat failure or engineering >9h → me to route approval; Priya keeps customer outcome open.
+Instructions and evidence location: HS-48251 proposed parent tracker + ephrata_handoff.md and workbook Work log.
+Monitoring / review cadence: Each scheduled business-day evidence block; review Sept 11 readiness and Sept 21 outcome. No added overnight/weekend shift.
+Remaining support dependency: Nate for technical exceptions within approved hours; any later engineering/observation needs its own allocation.
+Requirements before independent use: Current roster owner/backup, access, documented update and exception process, representative tests and customer confirmation.
+Handoff verification:
+Receiving owner updates an approved roster entry and checks it, Diego retrieves/routes an exception, Priya shows acceptance evidence without coaching. Any gap stays open.
+Risks and contingencies
+Risk
+Observable trigger
+Impact
+Response
+Owner
+Engineering over cap
+Forecast >9h
+Repair may wait
+Stop; size approval ask
+Nate / me
+Recurrence / weak sample
+Correction, misroute or no eligible calls
+Relief unproven
+Keep open; reset/extend resourced sample
+Priya
+
+Checkpoint: Would this continue working if the delivery team stepped away?
+Step 11: Synthesize and present
+Final narrative
+The expected outcome was carol ann getting her mornings back, but the evidence shows she's still fixing statuses and getting calls meant for on-call staff.
+The primary constraint is our outcome verification gap, supported by narrow tests and closure before customer confirmation. Biggest unknown rn is where the latest technical failures actually start.
+I recommend the bounded recovery loop bc it addresses the failure paths and checks whether the customer actually gets relief.
+The resource allocation prioritizes Ephrata while protecting Durant's exit, giving Medford scoping time and accepting that a full repair/restart may need later approved capacity.
+Artifact checks passed, including changed-input capacity/coverage checks. They haven't established live routing, availability or customer relief.
+Priya owns Ephrata, Nate technical evidence, Diego exceptions, Jordan Durant/Medford and backup, me capacity/escalation. Success needs actual workflow evidence and carol ann's confirmation.
+If recurrence happens or engineering needs >9h, Priya keeps recovery open and I route the sized next step for approval.
+Before independent use, we need the owner demo, access and acceptance gates. Next fact to verify is the latest incident's trace/current roster and shift-end trigger.
+Demonstration sequence
+Explain the user, problem, and consequence.
+Show the evidence supporting the diagnosis.
+Show the working intervention with a realistic example.
+Explain the result and relevant failure handling.
+Present test findings and limitations.
+State the next verification step and operating owner.
+Final review
+The problem is specific.
+The diagnosis has evidence.
+Assumptions and unknowns are explicit.
+The intervention addresses the diagnosed constraint.
+Resources and dependencies are feasible.
+Actions have owners, deadlines, and completion evidence.
+Testing covers behavior and user value.
+Risks have responses.
+The receiving team can operate the intervention.
+The next step resolves a meaningful uncertainty.
+
+
+
+
+
+
+
+Problem: Ephrata’s caregiver availability and after-hours call routing problems kept returning after Zingage had closed the tickets. The customer was still manually checking and correcting things. Meanwhile, the same team needed to offboard Durant and respond to Medford’s restart request.
+Thought process: I started by separating what the records proved from what we were assuming. A successful afternoon test or a connected integration didn’t prove the overnight workflow worked consistently. The clearest gap was that we had closed technical tickets without verifying the customer’s original outcome.
+How I prioritized: I put Ephrata’s routing investigation first because calls were reaching the wrong person. I also protected Durant’s agreed exit date and regular support coverage. For Medford, I planned scoping and a proposal before committing to a restart.
+What I built: I turned that into a ten-business-day plan with named owners, hours, prerequisites, and required evidence for each task. The workbook connected the work log to daily and overall capacity checks, so changing an allocation would expose conflicts. I also wrote the diagnosis, execution handoff, customer communication drafts, and an eleven-step playbook.
+Key tradeoff: Engineering was the tightest constraint: Ephrata could use only nine hours without escalation. I budgeted three for routing and six for the WellSky investigation. I also reduced overlapping observation effort, bringing Ephrata from 55 to 47 hours and freeing eight hours for exceptions.
+how I defined success: A fix needed technical evidence, sustained observation, and the customer’s confirmation that routine manual corrections were no longer necessary. If those conditions weren’t met, recovery stayed open with a clear next action.
+Outcome: We completed and versioned the assessment package in GitHub, tested the workbook’s capacity and evidence checks, and packaged the three submission deliverables. The outcome was an executable, tested proposal. Live repairs and customer acceptance were still pending.
+takeaway: I learned to connect technical work to the customer’s actual goal, make resource tradeoffs explicit, and define the evidence needed for completion before starting execution.

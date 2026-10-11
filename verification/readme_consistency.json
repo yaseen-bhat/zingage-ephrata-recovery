@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-11T21:28:15Z",
+  "readmeWords": 1548,
+  "sourceWords": 4848,
+  "allocationTable": {
+    "Ephrata": "47",
+    "Durant": "10",
+    "Medford": "5",
+    "Shared coordination": "5.5",
+    "Protected support coverage": "14"
+  },
+  "localLinksVerified": 9,
+  "originalThoughtProcessPreserved": true,
+  "submissionFilesStillMatchArchive": true,
+  "packageSha256": "db072370baf88217134612a8c86bd5d9db1f0d6d4d39ffdbcc3dae6899a30e4b",
+  "workbookReadback": {
+    "accountHours": [
+      47,
+      10,
+      5,
+      5.5,
+      14
+    ],
+    "personHours": {
+      "Head": 6.5,
+      "Priya": 23,
+      "Jordan": 15,
+      "Diego": 28,
+      "Nate": 9
+    },
+    "nonengineeringReserve": 30,
+    "workRecords": 69,
+    "workbookMatchesAllPlanRows": true,
+    "allWorkRecordStatuses": "Planned",
+    "baseChecksPassed": 11,
+    "previousInputChangeTestsConfirmed": 12
+  },
+  "manualReview": {
+    "snapshotAndWindow": "September 8, 2026; September 8–21 operating window",
+    "milestones": "September 11 export target/readiness checkpoint; September 18 final service date; September 21 outcome review; September 22 Medford board",
+    "acceptance": "Proposed implementation, operation, and customer-outcome gates; conditional observation; no live outcome claimed",
+    "authorship": "User-created Google Doc and granular analysis precede AI interpretation of notes and original sources; AI implementation and continued user review stated explicitly",
+    "draftAllocationDiscrepancy": "Retained approved 10h Durant / 5h Medford instead of draft 9h / 6h; no operating plan reallocation"
+  },
+  "deliverablesEdited": false
+}

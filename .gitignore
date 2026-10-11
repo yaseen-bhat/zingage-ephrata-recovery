@@ -3,3 +3,4 @@ node_modules
 build/previews/
 build/*.tmp
 *.xlsx.inspect.ndjson
+~$*.xlsx

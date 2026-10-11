@@ -84,6 +84,18 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Read the local Git history and verified that the submission snapshot `a80c493545b02dbecb73e2bcde55aab7be251582` matches the remote `main` commit. The ZIP remains the verified package from entry 007.
 
+## 009 — October 11, 2026, 2:28 PM PDT — Rewrite the README around the user's reasoning and AI workflow
+
+**Files:** `README.md`, `references/fde_thought_process.txt`, `verification/readme_consistency.json`, `.gitignore`.
+
+**Change:** Replaced the artifact inventory with a condensed first-person narrative covering the customer's goal, evidence discipline, workflow traces, uncertainties, intervention choice, capacity tradeoffs, execution, acceptance, and independent use. Explicitly state that the user first created a Google Doc and broke the problem down into granular steps, then had AI interpret those notes together with the original account/capacity files to produce the deliverables. Credit AI's implementation/validation and the user's review and allocation decisions. Preserve the full pasted thought process unchanged as a reference. Exclude Excel's temporary owner/lock file from version control; do not delete it or edit the live workbook.
+
+**Why:** Showcase how the user reasoned from the problem to the final proposal, while accurately describing the collaboration and the results. The user directed us to optimize for the final result and ensure the README matches the deliverables.
+
+**Decisions / corrections:** Keep the approved 10h Durant and 5h Medford totals, including leadership time, rather than the pasted draft's 9h/6h split. Describe Medford's response and proposal as funded, proposed actions rather than completed customer work. Do not imply that every Planned work record already has a completed next-step/evidence field.
+
+**Validation:** Condensed 4,848 source words to 1,548 README words. Read the exported workbook: all 69 work records match the build inputs and remain Planned; account totals, person totals, 30h reserve, and eleven base checks match. Confirmed the twelve prior input-change tests passed. Cross-checked memo owners, dates, authority boundaries, and acceptance conditions. All nine local README links resolve. The source copy matches the attachment exactly. ZIP hash and all embedded deliverable bytes remain unchanged and valid. No customer operation, new allocation, or Google Doc edit was performed in this change.
+
 ## Commit map
 
 | Entry | Commit | Committed at (PDT) |
