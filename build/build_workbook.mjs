@@ -139,7 +139,7 @@ cap.getRange('A44:A47').format.wrapText=true;cap.getRange('G44:G47').format.wrap
 
 // Independent reconciliation from original plan rows, followed by actual formula mutations.
 const totals={};const personTotals={};for(const a of actions){totals[a[3]]=(totals[a[3]]||0)+a[4];personTotals[a[2]]=(personTotals[a[2]]||0)+a[4];}
-assert.deepEqual(totals,{Ephrata:55,Portfolio:5.5,Durant:10,Medford:5,Coverage:14});
+assert.deepEqual(totals,{Ephrata:47,Portfolio:5.5,Durant:10,Medford:5,Coverage:14});
 assert.equal(actions.filter(a=>a[2]===people[4][0]).reduce((s,a)=>s+a[4],0),9);
 for(let i=0;i<10;i++)for(let j=0;j<6;j++){
  const who=people[j<3?j:j<5?3:4][0];const used=actions.filter(a=>a[1]===i+1&&a[2]===who&&(j===4?a[3]==='Coverage':a[3]!=='Coverage')).reduce((s,a)=>s+a[4],0);
@@ -147,8 +147,8 @@ for(let i=0;i<10;i++)for(let j=0;j<6;j++){
 }
 wb.recalculate();
 const value=(s,c)=>s.getRange(c).values[0][0];
-assert.deepEqual(cap.getRange('B33:B37').values.flat(),[55,10,5,5.5,14]);
-assert.equal(value(cap,'B39'),22);assert.equal(value(cap,'C11'),75.5);assert.equal(value(cap,'D11'),14);
+assert.deepEqual(cap.getRange('B33:B37').values.flat(),[47,10,5,5.5,14]);
+assert.equal(value(cap,'B39'),30);assert.equal(value(cap,'C11'),67.5);assert.equal(value(cap,'D11'),14);
 const report={checkedAt:new Date().toISOString(),engine:'@oai/artifact-tool',sourceTotals:totals,personTotals,baseChecks:cap.getRange('G17:G27').values.flat(),tests:[]};
 const mutate=(name,s,c,newValue,check)=>{const old=value(s,c);put(s,c,newValue);wb.recalculate();const observed=check();report.tests.push({name,observed});assert(observed.pass,name);put(s,c,old);wb.recalculate();};
 mutate('Engineering 10h triggers escalation and daily overage',log,`F${rowFor('N01')}`,4,()=>({pass:value(cap,'G17').startsWith('ESCALATE')&&value(cap,'B20')>0,capStatus:value(cap,'G17'),dailyFlags:value(cap,'B20')}));
@@ -171,7 +171,7 @@ await fs.writeFile(path.join(root,'verification','formula_error_scan.ndjson'),er
 await fs.writeFile(path.join(root,'verification','calculation_tests.json'),JSON.stringify(report,null,2));
 const xlsx=await SpreadsheetFile.exportXlsx(wb);const output=path.join(root,'ten_day_operating_plan.xlsx');await xlsx.save(output);
 const round=await SpreadsheetFile.importXlsx(await FileBlob.load(output));round.recalculate();
-assert.deepEqual(round.worksheets.getItem('Capacity').getRange('B33:B37').values.flat(),[55,10,5,5.5,14]);
+assert.deepEqual(round.worksheets.getItem('Capacity').getRange('B33:B37').values.flat(),[47,10,5,5.5,14]);
 assert(round.worksheets.getItem('Capacity').getRange('G17:G27').values.flat().every(x=>x==='OK'));
 report.roundTrip='Exported XLSX reimported; totals and base checks passed. Excel desktop was not opened.';
 await fs.writeFile(path.join(root,'verification','calculation_tests.json'),JSON.stringify(report,null,2));
@@ -184,4 +184,4 @@ for(const [sheetName,range,file] of [
 ]){
  const blob=await wb.render({sheetName,range,scale:1.5,format:'png'});await fs.writeFile(path.join(previewDir,`${file}.png`),new Uint8Array(await blob.arrayBuffer()));
 }
-console.log(JSON.stringify({output,actionRows:actions.length,totals,nonengineeringReserve:22,mutationTests:report.tests.length,roundTrip:report.roundTrip,formulaErrors:errors.ndjson},null,2));
+console.log(JSON.stringify({output,actionRows:actions.length,totals,nonengineeringReserve:30,mutationTests:report.tests.length,roundTrip:report.roundTrip,formulaErrors:errors.ndjson},null,2));

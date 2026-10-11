@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-11T20:38:18.231Z",
+  "checkedAt": "2026-10-11T20:40:42.611Z",
   "engine": "@oai/artifact-tool",
   "sourceTotals": {
-    "Ephrata": 55,
+    "Ephrata": 47,
     "Portfolio": 5.5,
     "Durant": 10,
     "Medford": 5,
@@ -10,7 +10,7 @@
   },
   "personTotals": {
     "Head of Deployment & Customer Ops": 6.5,
-    "Priya Chandrasekaran": 31,
+    "Priya Chandrasekaran": 23,
     "Jordan Kwan": 15,
     "Diego Marsh": 28,
     "Nate Osei": 9

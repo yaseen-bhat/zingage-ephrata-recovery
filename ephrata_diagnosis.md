@@ -4,7 +4,7 @@
 
 ## Decision
 
-Keep Ephrata's recovery open under HS-48251. Prioritize the recurring after-hours routing failure, then trace shift-end events through Casey and WellSky. Allocate 55 hours of cross-functional effort to Ephrata, including a hard maximum of 9 engineering hours. Protect Durant's agreed exit and respond to Medford with a bounded restart-scoping plan. Do not promise that Ephrata will be repaired by the end of the window.
+Keep Ephrata's recovery open under HS-48251. Prioritize the recurring after-hours routing failure, then trace shift-end events through Casey and WellSky. Allocate 47 hours of cross-functional effort to Ephrata, including a hard maximum of 9 engineering hours. Protect Durant's agreed exit and respond to Medford with a bounded restart-scoping plan. Do not promise that Ephrata will be repaired by the end of the window.
 
 The strongest confirmed diagnosis is a failure of outcome verification and ongoing workflow ownership. The team closed the underlying tickets after narrow tests and marked the account green before confirming sustained customer relief. The technical cause of the September recurrence remains unknown. Adoption, roster maintenance, event handling, and configuration may each contribute; the evidence does not yet establish which is responsible for the latest failures.
 
@@ -53,13 +53,15 @@ Routing and availability are separate workstreams until evidence proves a shared
 | Person | Ephrata | Durant | Medford | Cross-account coordination | Protected queue coverage | Unallocated / preserved | Window ceiling |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Head of Deployment & Customer Ops | 4 | 1 | 1 | 0.5 | 0 | 1 | 7.5 |
-| Priya Chandrasekaran | 28 | 0 | 0 | 3 | 0 | 5 | 36 proposed |
+| Priya Chandrasekaran | 20 | 0 | 0 | 3 | 0 | 13 | 36 proposed |
 | Jordan Kwan | 4 | 5 | 4 | 2 | 0 | 10 | 25 proposed |
 | Diego Marsh | 10 | 4 | 0 | 0 | 14 | 6 | 34 |
 | Nate Osei | 9 | 0 | 0 | 0 | 0 | 15 preserved for the wider account book | 24 across all accounts |
-| Total | 55 | 10 | 5 | 5.5 | 14 | 37 | 126.5 |
+| Total | 47 | 10 | 5 | 5.5 | 14 | 45 | 126.5 |
 
-Only the combined strategist ceiling of 61 hours is sourced. The 36/25 split and all daily availability profiles are proposed allocations to confirm on Day 1; they do not assert individual calendar availability. Strategists use 46 hours, leaving 15 within the combined ceiling. Diego uses 14 project hours plus 14 protected coverage hours, leaving 6 project hours. The Head retains 1 hour. These 22 nonengineering hours absorb discovery, export validation, customer scheduling, and further observation within the window. They cannot replace engineering skills or authorize new customer commitments. Nate's remaining 15 hours are preserved for the wider account book and are not discretionary Ephrata reserve.
+Only the combined strategist ceiling of 61 hours is sourced. The 36/25 split and all daily availability profiles are proposed allocations to confirm on Day 1; they do not assert individual calendar availability. Strategists use 38 hours, leaving 23 within the combined ceiling. Diego uses 14 project hours plus 14 protected coverage hours, leaving 6 project hours. The Head retains 1 hour. These 30 nonengineering hours absorb discovery, export validation, customer scheduling, and further observation within the window. They cannot replace engineering skills or authorize new customer commitments. Nate's remaining 15 hours are preserved for the wider account book and are not discretionary Ephrata reserve.
+
+Keep verification focused: Diego collects the five daily evidence sets in 5 hours, while Priya uses 6 hours to review the sample and interpret outcomes (2 hours on September 14, then 1 hour on each remaining morning). The same acceptance criteria apply. This avoids duplicating collection and analysis, retains peer review and leadership gates, and leaves 8 additional strategist hours available if exceptions justify them. Unused hours are contingency capacity, not completed work or implied fixes.
 
 Durant receives 9 strategist/CSM hours, the upper end of the supplied 5–9 hour estimate, plus 1 leadership hour. The September 11 export is a documented target; September 18 is the agreed final service date. Medford receives the upper 4-hour strategist estimate for scoping and a proposal, plus 1 leadership hour. Its September 22 board review does not create a committed restart date.
 

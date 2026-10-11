@@ -33,3 +33,13 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** Rounded display hours can obscure schedule feasibility, and duplicate dates must not appear to create extra daily capacity.
 
 **Validation:** Twelve mutation tests passed, including duplicate-date and increased-source-capacity cases. No formula errors. XLSX export/reimport passed. Reviewed rendered views from every tab, including initial and final schedule sections; changed hour precision and date separation are legible. Reviewed all source references. No account allocation changed in this entry.
+
+## 004 — October 11, 2026, 1:44 PM PDT — Adopt the approved leaner observation allocation
+
+**Files:** `ephrata_diagnosis.md`, `ephrata_handoff.md`, `build/plan.mjs`, `build/build_workbook.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`, `verification/capacity_inspection.ndjson`.
+
+**Change:** Reduced Priya's five-day observation budget from 14h to 6h: 2h on September 14 and 1h on September 15–18. Diego retains 5h for daily evidence collection. Ephrata falls from 55h to 47h, Priya's Ephrata effort from 28h to 20h, and the nonengineering contingency reserve rises from 22h to 30h. Durant, Medford, engineering, protected queue coverage, and acceptance criteria are unchanged.
+
+**Why:** The user approved the leaner allocation after we identified overlapping collection and review effort. Preserve verification while keeping eight additional strategist hours available for exceptions.
+
+**Validation:** Rebuilt and reconciled all 69 work records. Twelve mutation tests passed; no formula errors; XLSX export/reimport passed. Reviewed the revised Capacity views showing 47h for Ephrata and 30h nonengineering reserve. The nine-hour engineering ceiling still limits diagnosis, correction, and retesting together.
