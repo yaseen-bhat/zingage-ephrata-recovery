@@ -43,3 +43,13 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** The user approved the leaner allocation after we identified overlapping collection and review effort. Preserve verification while keeping eight additional strategist hours available for exceptions.
 
 **Validation:** Rebuilt and reconciled all 69 work records. Twelve mutation tests passed; no formula errors; XLSX export/reimport passed. Reviewed the revised Capacity views showing 47h for Ephrata and 30h nonengineering reserve. The nine-hour engineering ceiling still limits diagnosis, correction, and retesting together.
+
+## 005 — October 11, 2026, 1:46 PM PDT — Complete the native Google Doc playbook
+
+**Files / external document:** `build/google_doc_playbook.json`, `verification/google_doc_update.json`, `README.md`; original Zingage FDE Framework Google Doc, new `Ten-day operating playbook` tab.
+
+**Change:** Added the completed eleven-step case playbook, making Step 7 the central allocation decision. Included the approved 47-hour recovery budget, individual/day assumptions, ten-day sequence, technical stop rules, deferrals, customer outcome gates, operating ownership, and actual artifact-validation limits. Retained exact playbook text and heading structure in the repository for recovery. The first tab contains the three full Markdown references previously consolidated into the original Doc; the original framework and user draft remain intact.
+
+**Why:** Make the framework usable as an operating plan and preserve the user's source context and own working draft. Keep artifact checks distinct from live deployment results.
+
+**Validation:** Revision-guarded native edit succeeded. Readback matched all 61 authored paragraphs and all eleven step headings. Before/after text, indexes, and heading styles matched for the first tab and original framework. No duplicate native document or attached Library-file edit. The completed playbook includes a September 18 service-cutoff confirmation before Durant deactivation; this execution detail will also be reflected in the local handoff and workbook before packaging.

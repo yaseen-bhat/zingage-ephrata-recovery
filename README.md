@@ -22,6 +22,10 @@ The sourced limits are 7.5 Head hours, 61 combined strategist hours, 34 CSM hour
 
 Source and artifact copies are for the private repository. Customer communication in the handoff consists of unsent drafts.
 
+## Google Doc playbook
+
+The original [Zingage FDE Framework](https://docs.google.com/document/d/1w_PuN2WxMAgreZP6yWOCIpCCSME-YPLaa43CS9UbwOg) has the complete three-source Markdown context in its first tab and a completed **Ten-day operating playbook** tab. The original framework and the user's Step 1 draft are preserved. `build/google_doc_playbook.json` retains the exact completed playbook text and heading structure; `verification/google_doc_update.json` records the native document revision and readback checks. The attached Library export was not edited and no duplicate native document was created.
+
 ## Rebuild and verification
 
 The workbook is authored with Codex's bundled `@oai/artifact-tool` runtime. With that dependency available, run `build/build_workbook.mjs` using its bundled Node executable. The builder recalculates the workbook, tests representative input changes and restores them, exports and reimports the XLSX, and produces visual previews. Previews and dependencies are not committed. Verification results are committed in `verification/`.
