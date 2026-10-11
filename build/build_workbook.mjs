@@ -25,7 +25,7 @@ base(input,'A1:H53',[39,17,14,15,15,17,16,17]);
 put(input,'A2','Inputs and assumptions');input.getRange('A2').format.font={size:14,bold:true};
 put(input,'A3','Amber cells are editable assumptions. Source limits and approval boundaries remain controlling.');
 input.getRange('A5:D10').values=[['Person','Window hours','Coverage min','Ephrata cap'],...people.map(p=>p.slice(0,4))];header(input,'A5:D5');
-input.getRange('B6:D10').setNumberFormat('0.0');input.getRange('B6:B10').format.fill=amber;
+input.getRange('B6:D10').setNumberFormat('0.00');input.getRange('B6:B10').format.fill=amber;
 input.getRange('B7:B8').format.fill=amber;put(input,'F6','Sourced 7.5h ceiling');put(input,'F7','36h proposed split');put(input,'F8','25h proposed split');put(input,'F9','34h total; 14h protected');put(input,'F10','24h wider book; 9h Ephrata');
 put(input,'A12','Strategists combined ceiling');put(input,'B12',61);
 put(input,'A14','Planning start');put(input,'B14',date(dates[0]));
@@ -34,7 +34,7 @@ put(input,'A16','Durant export target');put(input,'B16',date('2026-09-11'));
 put(input,'A17','Durant final service day');put(input,'B17',date('2026-09-18'));
 put(input,'A18','Medford board review');put(input,'B18',date('2026-09-22'));input.getRange('B14:B18').setNumberFormat('mmm d, yyyy');
 input.getRange('A20:H30').values=[['Day','Date','Head h','Priya h','Jordan h','CSM project h','Queue h','Nate Ephrata h'],...dates.map((d,i)=>[i+1,date(d),...dailyCaps[i]])];header(input,'A20:H20');
-input.getRange('B21:B30').setNumberFormat('ddd, mmm d');input.getRange('C21:H30').setNumberFormat('0.0');input.getRange('C21:H30').format.fill=amber;
+input.getRange('B21:B30').setNumberFormat('ddd, mmm d');input.getRange('C21:H30').setNumberFormat('0.00');input.getRange('C21:H30').format.fill=amber;
 put(input,'A31','Daily profiles and the individual strategist split require Day 1 calendar confirmation.');
 input.getRange('A33:F40').values=[
  ['Action','Low h','High h','Role','Source','Base budget'],
@@ -45,7 +45,7 @@ input.getRange('A33:F40').values=[
  ['Adoption pull + outreach',2,4,'Strategist/CSM','Capacity §3',2],
  ['Durant offboarding',5,9,'Strategist/CSM','Capacity §3',9],
  ['Medford scoping + proposal',2,4,'Strategist','Capacity §3',4],
- ];header(input,'A33:F33');input.getRange('B34:C40').setNumberFormat('0.0');input.getRange('F34:F40').setNumberFormat('0.0');
+ ];header(input,'A33:F33');input.getRange('B34:C40').setNumberFormat('0.00');input.getRange('F34:F40').setNumberFormat('0.00');input.getRange('D34:E40').format.wrapText=true;input.getRange('A34:F40').format.rowHeight=36;
 put(input,'A42','References');input.getRange('A42').format.font.bold=true;
 put(input,'A43','Deployment team capacity and decision boundaries for the ten-business-day window.md');
 put(input,'A44','Sections 1–4: ceilings, protected coverage, engineering cap, estimates and authority.');
@@ -62,7 +62,7 @@ put(log,'A2','Execution work log');log.getRange('A2').format.font={size:14,bold:
 put(log,'A3','Planned actions only. Enter actual evidence before marking Done; blocked work needs a next step.');
 log.getRange(`A5:M${end}`).values=[['ID','Day','Date','Owner','Account','Hours','Action','Prerequisite','Expected evidence','Status','Actual evidence','Next step','Row check'],...actions.map(a=>[a[0],a[1],null,a[2],a[3],a[4],a[5],a[6],a[7],'Planned',null,null,null])];header(log,'A5:M5');
 log.getRange(`B6:B${end}`).format.fill=amber;log.getRange(`F6:F${end}`).format.fill=amber;log.getRange(`J6:L${end}`).format.fill=amber;
-log.getRange(`C6:C${end}`).setNumberFormat('mmm d, yyyy');log.getRange(`F6:F${end}`).setNumberFormat('0.0');
+log.getRange(`C6:C${end}`).setNumberFormat('mmm d, yyyy');log.getRange(`C6:C${end}`).format.horizontalAlignment='center';log.getRange(`F6:F${end}`).setNumberFormat('0.00');
 log.getRange(`D6:M${end}`).format.wrapText=true;log.getRange(`A6:M${end}`).format.rowHeight=58;
 log.getRange(`G6:L${end}`).format.verticalAlignment='top';
 log.getRange(`D6:D${end}`).dataValidation={rule:{type:'list',values:people.map(p=>p[0])}};
@@ -71,7 +71,7 @@ log.getRange(`J6:J${end}`).dataValidation={rule:{type:'list',values:['Planned','
 log.dataValidations.add({range:`B6:B${end}`,rule:{type:'whole',operator:'between',formula1:1,formula2:10}});
 for(let r=6;r<=end;r++){
  formula(log,`C${r}`,`=IF(AND(ISNUMBER(B${r}),B${r}>=1,B${r}<=10,MOD(B${r},1)=0),INDEX('Inputs'!$B$21:$B$30,B${r}),"")`);
- formula(log,`M${r}`,`=IF(OR(COUNTBLANK(B${r}:F${r})>0,NOT(ISNUMBER(F${r})),F${r}<0),"INPUT",IF(COUNTIFS('Inputs'!$A$6:$A$10,D${r})<>1,"OWNER",IF(NOT(OR(E${r}="Ephrata",E${r}="Durant",E${r}="Medford",E${r}="Portfolio",E${r}="Coverage")),"ACCOUNT",IF(OR(C${r}<'Inputs'!$B$14,C${r}>'Inputs'!$B$15,WEEKDAY(C${r},2)>5),"DATE",IF(AND(J${r}="Done",K${r}=""),"EVIDENCE",IF(AND(J${r}="Blocked",L${r}=""),"NEXT STEP","OK"))))))`);
+ formula(log,`M${r}`,`=IF(OR(COUNTBLANK(B${r}:F${r})>0,NOT(ISNUMBER(F${r})),F${r}<0),"INPUT",IF(COUNTIFS('Inputs'!$A$6:$A$10,D${r})<>1,"OWNER",IF(NOT(OR(E${r}="Ephrata",E${r}="Durant",E${r}="Medford",E${r}="Portfolio",E${r}="Coverage")),"ACCOUNT",IF(OR(C${r}<'Inputs'!$B$14,C${r}>'Inputs'!$B$15,WEEKDAY(C${r},2)>5,C${r}<>WORKDAY('Inputs'!$B$14,B${r}-1)),"DATE",IF(AND(J${r}="Done",K${r}=""),"EVIDENCE",IF(AND(J${r}="Blocked",L${r}=""),"NEXT STEP","OK"))))))`);
 }
 warn(log,`M6:M${end}`);log.freezePanes.freezeRows(5);log.freezePanes.freezeColumns(4);
 const rowFor=id=>actions.findIndex(a=>a[0]===id)+6;
@@ -89,10 +89,10 @@ for(let i=0;i<10;i++)for(let j=0;j<6;j++){
  formula(day,`E${r}`,`=IF(COUNTBLANK('Inputs'!${inputCol}${inputRow})>0,"",'Inputs'!${inputCol}${inputRow})`);
  formula(day,`F${r}`,`=SUMIFS(${hrs},${owners},C${r},${days},A${r},${accts},"${j===4?'Coverage':'<>Coverage'}")`);
  formula(day,`G${r}`,`=IF(ISNUMBER(E${r}),E${r}-F${r},"")`);
- formula(day,`H${r}`,`=IF(NOT(ISNUMBER(E${r})),"MISSING",IF(E${r}<0,"INVALID",IF(OR(B${r}<'Inputs'!$B$14,B${r}>'Inputs'!$B$15,WEEKDAY(B${r},2)>5),"DATE",IF(G${r}<0,"OVER","OK"))))`);
+ formula(day,`H${r}`,`=IF(NOT(ISNUMBER(E${r})),"MISSING",IF(E${r}<0,"INVALID",IF(OR(B${r}<'Inputs'!$B$14,B${r}>'Inputs'!$B$15,WEEKDAY(B${r},2)>5,B${r}<>WORKDAY('Inputs'!$B$14,A${r}-1)),"DATE",IF(G${r}<0,"OVER","OK"))))`);
  if(i%2===1)day.getRange(`A${r}:I${r}`).format.fill=pale;
 }
-day.getRange('B6:B65').setNumberFormat('ddd, mmm d');day.getRange('E6:G65').setNumberFormat('0.0');day.getRange('C6:D65').format.wrapText=true;day.getRange('A6:I65').format.rowHeight=38;
+day.getRange('B6:B65').setNumberFormat('ddd, mmm d');day.getRange('B6:B65').format.horizontalAlignment='center';day.getRange('E6:G65').setNumberFormat('0.00');day.getRange('C6:D65').format.wrapText=true;day.getRange('A6:I65').format.rowHeight=38;
 warn(day,'H6:H65');day.freezePanes.freezeRows(5);day.freezePanes.freezeColumns(4);
 
 base(cap,'A1:G49',[39,14,14,14,14,14,39]);cap.tabColor=navy;
@@ -107,7 +107,7 @@ for(let i=0;i<5;i++){
  formula(cap,`G${r}`,`=IF(COUNTBLANK('Inputs'!B${r})>0,"MISSING INPUT",IF(B${r}<0,"INVALID INPUT",IF(F${r}<0,"OVER CAPACITY","OK")))`);
 }
 put(cap,'A11','Total stated ceiling');for(const c of ['B','C','D','E','F'])formula(cap,`${c}11`,`=SUM(${c}6:${c}10)`);cap.getRange('A11:G11').format.font.bold=true;
-cap.getRange('B6:F11').setNumberFormat('0.0');cap.getRange('A6:A10').format.wrapText=true;cap.getRange('A6:G10').format.rowHeight=38;warn(cap,'G6:G10');
+cap.getRange('B6:F11').setNumberFormat('0.00');cap.getRange('A6:A10').format.wrapText=true;cap.getRange('A6:G10').format.rowHeight=38;warn(cap,'G6:G10');
 put(cap,'A13',"Nate's 15h free balance is preserved for the wider account book, not Ephrata reserve.");
 put(cap,'A14','Priya/Jordan ceilings are a proposed 36h/25h split of the sourced 61h combined ceiling.');
 cap.getRange('A16:C16').values=[['Rule','Measured','Limit']];header(cap,'A16:C16');put(cap,'G16','Decision');header(cap,'G16');
@@ -119,19 +119,19 @@ const checks=[
  ['Daily profiles vs ceilings (h)',"=ABS(SUM('Inputs'!C21:C30)-'Inputs'!B6)+ABS(SUM('Inputs'!D21:D30)-'Inputs'!B7)+ABS(SUM('Inputs'!E21:E30)-'Inputs'!B8)+ABS(SUM('Inputs'!F21:F30)-('Inputs'!B9-'Inputs'!C9))+ABS(SUM('Inputs'!G21:G30)-'Inputs'!C9)+ABS(SUM('Inputs'!H21:H30)-'Inputs'!D10)",0,'=IF(B21>0,"REVIEW: daily profiles","OK")'],
  ['Missing capacity inputs',"=COUNTBLANK('Inputs'!B6:B10)+COUNTBLANK('Inputs'!B12)+COUNTBLANK('Inputs'!C9)+COUNTBLANK('Inputs'!D10)+COUNTBLANK('Inputs'!B14:B18)+COUNTBLANK('Inputs'!B21:H30)",0,'=IF(B22>0,"MISSING: capacity input","OK")'],
  ['Work log row flags',`=COUNTIFS('Work log'!M6:M${end},"<>OK")`,0,'=IF(B23>0,"REVIEW: work log row","OK")'],
- ['Fixed source boundaries retained',"=IF(AND('Inputs'!C9=14,'Inputs'!D10=9,'Inputs'!B12=61,'Inputs'!B14=DATE(2026,9,8),'Inputs'!B15=DATE(2026,9,21),'Inputs'!B16=DATE(2026,9,11),'Inputs'!B17=DATE(2026,9,18),'Inputs'!B18=DATE(2026,9,22)),1,0)",1,'=IF(B24<>C24,"REVIEW: source boundary","OK")'],
+ ['Fixed source boundaries retained',"=IF(AND('Inputs'!B6<=7.5,'Inputs'!B9<=34,'Inputs'!B10<=24,'Inputs'!C9=14,'Inputs'!D10=9,'Inputs'!B12=61,'Inputs'!B14=DATE(2026,9,8),'Inputs'!B15=DATE(2026,9,21),'Inputs'!B16=DATE(2026,9,11),'Inputs'!B17=DATE(2026,9,18),'Inputs'!B18=DATE(2026,9,22)),1,0)",1,'=IF(B24<>C24,"REVIEW: source boundary","OK")'],
  ['Durant export planned by target',`='Work log'!C${rowFor('J08')}`,"='Inputs'!B16",'=IF(NOT(ISNUMBER(B25)),"MISSING: export date",IF(B25>C25,"RISK: export target","OK"))'],
  ['Durant deactivation on final day',`='Work log'!C${rowFor('D14')}`,"='Inputs'!B17",'=IF(NOT(ISNUMBER(B26)),"MISSING: exit date",IF(B26<>C26,"ESCALATE: exit date","OK"))'],
  ['Medford proposal before review',`='Work log'!C${rowFor('J16')}`,"='Inputs'!B18",'=IF(NOT(ISNUMBER(B27)),"MISSING: proposal date",IF(B27>=C27,"RISK: board proposal","OK"))'],
 ];
 checks.forEach((v,i)=>{const r=17+i;put(cap,`A${r}`,v[0]);formula(cap,`B${r}`,v[1]);typeof v[2]==='string'?formula(cap,`C${r}`,v[2]):put(cap,`C${r}`,v[2]);formula(cap,`G${r}`,v[3]);});
-cap.getRange('B17:C23').setNumberFormat('0.0');cap.getRange('B25:C27').setNumberFormat('mmm d');warn(cap,'G17:G27');
+cap.getRange('B17:C23').setNumberFormat('0.00');cap.getRange('B25:C27').setNumberFormat('mmm d');warn(cap,'G17:G27');
 put(cap,'A29','Checks show allocation feasibility. They do not imply any task is completed or any repair is verified.');
 cap.getRange('A32:B32').values=[['Account / activity','Hours']];header(cap,'A32:B32');put(cap,'G32','Funded outcome / boundary');header(cap,'G32');
 const outcomes=['Investigation and conditional verification; 9h engineering cap','Validated export, invoice and agreed September 18 exit','Scoping and proposal; restart not committed','Allocation review and dependency coordination','Standing queue coverage across all active accounts'];
 ['Ephrata','Durant','Medford','Portfolio','Coverage'].forEach((a,i)=>{const r=33+i;put(cap,`A${r}`,a);formula(cap,`B${r}`,`=SUMIFS(${hrs},${accts},A${r})`);put(cap,`G${r}`,outcomes[i]);});
-cap.getRange('B33:B37').setNumberFormat('0.0');cap.getRange('G33:G37').format.wrapText=true;cap.getRange('A33:G37').format.rowHeight=48;
-put(cap,'A39','Unallocated nonengineering hours');formula(cap,'B39','=SUM(F6:F9)');cap.getRange('B39').setNumberFormat('0.0');
+cap.getRange('B33:B37').setNumberFormat('0.00');cap.getRange('G33:G37').format.wrapText=true;cap.getRange('A33:G37').format.rowHeight=48;
+put(cap,'A39','Unallocated nonengineering hours');formula(cap,'B39','=SUM(F6:F9)');cap.getRange('B39').setNumberFormat('0.00');
 put(cap,'A40','Reserves must be reassigned by owner and date; spare strategist hours cannot substitute for engineering.');
 cap.getRange('A43:B43').values=[['Deferred work','Owner']];header(cap,'A43:B43');put(cap,'G43','Trigger and consequence');header(cap,'G43');
 deferred.forEach((v,i)=>{const r=44+i;put(cap,`A${r}`,v[0]);put(cap,`B${r}`,v[1]);put(cap,`G${r}`,`${v[2]}. ${v[3]}.`);});
@@ -161,6 +161,8 @@ mutate('Blank capacity is not treated as valid zero',input,'B7',null,()=>({pass:
 mutate('Task outside ten-day window is flagged',log,`B${rowFor('J16')}`,11,()=>({pass:value(log,`M${rowFor('J16')}`)==='INPUT'&&value(cap,'G27').startsWith('MISSING'),rowStatus:value(log,`M${rowFor('J16')}`),milestoneStatus:value(cap,'G27')}));
 mutate('Unauthorized final-service-date change is exposed',input,'B17',date('2026-09-19'),()=>({pass:value(cap,'G24').startsWith('REVIEW')&&value(cap,'G26').startsWith('ESCALATE'),sourceStatus:value(cap,'G24'),exitStatus:value(cap,'G26')}));
 mutate('Zero coverage is distinct from a missing value',log,`F${rowFor('Q01')}`,0,()=>({pass:value(cap,'G18').startsWith('GAP')&&value(log,`M${rowFor('Q01')}`)==='OK',gapStatus:value(cap,'G18'),rowStatus:value(log,`M${rowFor('Q01')}`)}));
+mutate('Duplicate calendar date cannot create hidden capacity',input,'B22',date('2026-09-08'),()=>({pass:value(day,'H12')==='DATE'&&value(cap,'B23')>0,status:value(day,'H12'),workLogFlags:value(cap,'B23')}));
+mutate('Extra Head capacity beyond the source is flagged',input,'B6',8,()=>({pass:value(cap,'G24').startsWith('REVIEW'),status:value(cap,'G24')}));
 wb.recalculate();assert(cap.getRange('G17:G27').values.flat().every(x=>x==='OK'));
 const inspection=await wb.inspect({kind:'table',range:'Capacity!A5:G27',include:'values,formulas',tableMaxRows:24,tableMaxCols:7,maxChars:16000});
 await fs.writeFile(path.join(root,'verification','capacity_inspection.ndjson'),inspection.ndjson);

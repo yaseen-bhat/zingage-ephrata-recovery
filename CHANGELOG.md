@@ -23,3 +23,13 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** Prove the proposed allocation fits and expose conflicts when inputs change, rather than relying on a static capacity table.
 
 **Validation:** Ten meaningful mutation tests passed: engineering overage, coverage reduction, window capacity reduction, daily capacity reduction, missing evidence, blocked-without-next-step, missing capacity, out-of-window work, changed final service date, and zero coverage. No formula errors were found. XLSX export/reimport preserved the totals and base checks. Excel desktop was not opened. Visual review identified quarter-hour rounding and a need to strengthen calendar-sequence guards; these corrections follow in entry 003.
+
+## 003 — October 11, 2026, 1:40 PM PDT — Correct precision and calendar guards
+
+**Files:** `build/build_workbook.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`, `.gitignore`.
+
+**Change:** Display all hour figures to two decimals so 0.75h and 0.25h blocks remain exact. Separate date labels from names, give effort descriptions adequate row height, and reject duplicate/nonsequential business dates. Flag a source ceiling increased beyond the supplied Head/CSM/engineer limits. Exclude the local dependency symlink from Git.
+
+**Why:** Rounded display hours can obscure schedule feasibility, and duplicate dates must not appear to create extra daily capacity.
+
+**Validation:** Twelve mutation tests passed, including duplicate-date and increased-source-capacity cases. No formula errors. XLSX export/reimport passed. Reviewed rendered views from every tab, including initial and final schedule sections; changed hour precision and date separation are legible. Reviewed all source references. No account allocation changed in this entry.

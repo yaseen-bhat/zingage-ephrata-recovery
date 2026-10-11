@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-11T20:36:01.849Z",
+  "checkedAt": "2026-10-11T20:38:18.231Z",
   "engine": "@oai/artifact-tool",
   "sourceTotals": {
     "Ephrata": 55,
@@ -102,6 +102,21 @@
         "pass": true,
         "gapStatus": "GAP: protect queue hours",
         "rowStatus": "OK"
+      }
+    },
+    {
+      "name": "Duplicate calendar date cannot create hidden capacity",
+      "observed": {
+        "pass": true,
+        "status": "DATE",
+        "workLogFlags": 8
+      }
+    },
+    {
+      "name": "Extra Head capacity beyond the source is flagged",
+      "observed": {
+        "pass": true,
+        "status": "REVIEW: source boundary"
       }
     }
   ],
