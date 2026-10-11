@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-11T21:28:15Z",
-  "readmeWords": 1548,
-  "sourceWords": 4848,
+  "checkedAt": "2026-10-11T21:51:11.133353+00:00",
+  "readmeWords": 1626,
+  "sourceWords": 4642,
   "allocationTable": {
     "Ephrata": "47",
     "Durant": "10",
@@ -36,11 +36,12 @@
     "previousInputChangeTestsConfirmed": 12
   },
   "manualReview": {
-    "snapshotAndWindow": "September 8, 2026; September 8–21 operating window",
+    "snapshotAndWindow": "September 8, 2026; September 8\u201321 operating window",
     "milestones": "September 11 export target/readiness checkpoint; September 18 final service date; September 21 outcome review; September 22 Medford board",
     "acceptance": "Proposed implementation, operation, and customer-outcome gates; conditional observation; no live outcome claimed",
-    "authorship": "User-created Google Doc and granular analysis precede AI interpretation of notes and original sources; AI implementation and continued user review stated explicitly",
+    "authorship": "User working notes, problem breakdown, priorities, review and approvals; AI implementation and later reconstruction/expansion. Neowork recording issue is user-reported. Google Doc labeled as an AI-assisted retrospective.",
     "draftAllocationDiscrepancy": "Retained approved 10h Durant / 5h Medford instead of draft 9h / 6h; no operating plan reallocation"
   },
-  "deliverablesEdited": false
+  "deliverablesEdited": false,
+  "latestFrameworkSnapshotPreserved": true
 }

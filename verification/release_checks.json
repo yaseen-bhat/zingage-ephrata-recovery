@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-11T21:38:34.722239+00:00",
+  "checked_at": "2026-10-11T21:51:11.222466+00:00",
   "package": "ephrata_recovery_package.zip",
   "required_deliverables_at_root": true,
   "updated_readme_included": true,
@@ -26,13 +26,13 @@
   "supporting_files": [
     {
       "name": "README.md",
-      "bytes": 11202,
-      "sha256": "ea7648428cb70302d48233ef2c38cf4203c7f3e73bbf493e95e69eaa8012a5e1"
+      "bytes": 11703,
+      "sha256": "d262d910d798c3c2fccdaf3ec22c1cdbd5bd67625e4784d55093b88e7adc14c1"
     },
     {
       "name": "CHANGELOG.md",
-      "bytes": 13544,
-      "sha256": "33bd028af29f7563badd3178165471e1fa9a72d3455035c548a37d7866230529"
+      "bytes": 15584,
+      "sha256": "c1c26b827b4c8c793c30fe5f58608bdb784a6229a6f5436dd36a064418393097"
     },
     {
       "name": "references/Deployment team capacity and decision boundaries for the ten-business-day window.md",
@@ -48,6 +48,11 @@
       "name": "references/Visiting Angels Durant and Affordable at Home Care Medford's account histories.md",
       "bytes": 5910,
       "sha256": "c01b0b2fd2c0edc8d4ea7290701875c6c0a28d51f490510b122ed26694ff0ab3"
+    },
+    {
+      "name": "references/fde_framework_latest.txt",
+      "bytes": 32230,
+      "sha256": "def541b634f76efb68465d7a9b7580415d5a9189938e04fb0a14aadc2e480e29"
     },
     {
       "name": "references/fde_thought_process.txt",
@@ -66,8 +71,8 @@
     },
     {
       "name": "build/package_release.py",
-      "bytes": 6517,
-      "sha256": "9ce4e6ce56abd75cd12256c60700c58c2005f69843c011c71b869e0c3ad20ed2"
+      "bytes": 6943,
+      "sha256": "bd70f483d7ea43c17cebb965596e74e50fc362744cc8f4a5976ce1f7d6c63daf"
     },
     {
       "name": "build/plan.mjs",
@@ -95,9 +100,14 @@
       "sha256": "f7dfbd03a3669ec8c16fe574584ee094146b1728049858e09b5b82961840150a"
     },
     {
+      "name": "verification/process_provenance_update.json",
+      "bytes": 1444,
+      "sha256": "7edeef17d0d6fc1b925a13a8932349cb4b21c30d6409997c98f1aaf80ed3e865"
+    },
+    {
       "name": "verification/readme_consistency.json",
-      "bytes": 1678,
-      "sha256": "8bab6c64c3c0160ec0c86206e972d217ad8ef1e9c7b091025210afd3b1c00f22"
+      "bytes": 1793,
+      "sha256": "d27725ac8ba303f1a197b1529d31c0c68de8b88251484687a8ccce8e34f46700"
     }
   ],
   "allocation_hours": {
@@ -137,6 +147,7 @@
       "original_unchanged": true
     }
   ],
-  "google_doc_revision": "AHj4eMSM6cgynzUmUwTpfvbbQcccNpRWBnp7Sm4URb8N7KUH-cV0j5LlNy_JN7ud6ldNQnlckCRVrMh3g_vO5G1Fi1SNF-wP8pUJbh9RtK4",
-  "google_doc_readback_passed": true
+  "google_doc_revision": "AHj4eMQkx6vFaZtfg2qwzJw_La3hvD-YtG3rDWNfTkuQ0HVX99JpwxNlF7txOkZrWiwHIs27jKJFWXO8g_fKlu0BU6gZK2PDWq7zO4MDAGY",
+  "google_doc_readback_passed": true,
+  "google_doc_process_provenance_verified": true
 }

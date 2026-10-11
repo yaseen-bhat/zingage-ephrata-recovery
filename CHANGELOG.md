@@ -106,6 +106,16 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Packaging verifies all embedded file bytes, CRCs, manifest hashes, required root-level deliverables, and local README links. The operating allocations and the three core deliverables are unchanged from the approved result. No new workbook authoring or live customer operation is performed.
 
+## 011 — October 11, 2026, 2:50 PM PDT — Clarify working notes and the later AI-assisted process write-up
+
+**Files / native document:** `README.md`, `references/fde_framework_latest.txt`, `verification/process_provenance_update.json`, `verification/readme_consistency.json`, `build/package_release.py`, `verification/release_checks.json`, `verification/package_checksum.json`, `ephrata_recovery_package.zip`; original Google Doc's current `FDE Problem-Solving Framework` tab.
+
+**Change:** Explain the user's reported recurring Neowork update bug and unreliable process recording. Describe the Google Doc as working analysis combined with a later AI-assisted reconstruction/expansion, rather than a complete contemporaneous record written before AI involvement. Distinguish the user's problem breakdown, priorities, review, and approvals from AI's interpretation, detailed explanation, artifact construction, validation, and packaging. Add the same short attribution note to the native Google Doc. Preserve the latest pasted framework unchanged as a separate reference snapshot.
+
+**Consistency correction:** The current native Doc had a single framework tab. Preserve that current structure and the existing framework body; update only its two 9h/6h draft allocation entries to 10h/5h so the final account split agrees with the approved workbook and README. Older pasted snapshots remain historical source material, labeled as containing draft figures. The Neowork bug is a user-reported experience, not an independently verified product diagnosis.
+
+**Validation:** Revision-guarded native edit and readback passed. The four new provenance paragraphs matched exactly; the existing nonempty framework paragraphs matched after the two intended allocation corrections. Refresh the README consistency record and package manifest using this latest Doc revision. Packaging checks embedded bytes, hashes, CRCs, required deliverables, and local links. No operating allocation or core deliverable changed; no live customer action was performed.
+
 ## Commit map
 
 | Entry | Commit | Committed at (PDT) |

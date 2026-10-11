@@ -37,6 +37,11 @@ document = json.loads((ROOT / "verification/google_doc_update.json").read_text()
 assert document["content_matches"] and document["eleven_step_headings"] == 11
 assert document["first_tab_reference_context_preserved"] and document["original_framework_preserved"]
 assert all(source["full_context_present"] for source in document["first_tab_sources"])
+provenance_path = ROOT / "verification/process_provenance_update.json"
+provenance = json.loads(provenance_path.read_text()) if provenance_path.exists() else None
+if provenance:
+    assert provenance["provenance_readback_passed"]
+    assert provenance["existing_framework_preserved_except_two_allocation_corrections"]
 
 references = []
 for reference in sorted((ROOT / "references").glob("*.md")):
@@ -94,8 +99,9 @@ report = {
     "native_excel_opened": False,
     "live_customer_workflows_executed": False,
     "references": references,
-    "google_doc_revision": document["revision_id"],
+    "google_doc_revision": provenance["revision_id"] if provenance else document["revision_id"],
     "google_doc_readback_passed": True,
+    "google_doc_process_provenance_verified": bool(provenance),
 }
 (ROOT / "verification/release_checks.json").write_text(json.dumps(report, indent=2) + "\n")
 payloads["verification/release_checks.json"] = (ROOT / "verification/release_checks.json").read_bytes()

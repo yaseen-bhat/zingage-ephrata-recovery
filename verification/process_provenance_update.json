@@ -1,0 +1,22 @@
+{
+  "document_id": "1w_PuN2WxMAgreZP6yWOCIpCCSME-YPLaa43CS9UbwOg",
+  "tab_id": "t.0",
+  "revision_id": "AHj4eMQkx6vFaZtfg2qwzJw_La3hvD-YtG3rDWNfTkuQ0HVX99JpwxNlF7txOkZrWiwHIs27jKJFWXO8g_fKlu0BU6gZK2PDWq7zO4MDAGY",
+  "existing_tab_layout": [
+    "FDE Problem-Solving Framework"
+  ],
+  "provenance_note": [
+    "How this write-up was put together",
+    "I used this Google Doc for working notes while breaking down the case. Neowork's recurring update bug meant my process was not reliably recorded as I went. Later, I asked AI to reconstruct and expand the explanation using my notes, the case files, and the decisions made during the exercise.",
+    "My role: break down the problem, set priorities, review the outputs, and approve final decisions. AI's role: interpret the material, explain the process in detail, build and check the deliverables, and package/version them.",
+    "The framework below combines my working analysis and AI-assisted retrospective explanation. The final plan is 47h Ephrata, 10h Durant, and 5h Medford, including leadership time. Live customer work remains proposed."
+  ],
+  "provenance_readback_passed": true,
+  "existing_framework_preserved_except_two_allocation_corrections": true,
+  "allocation_corrections": [
+    "47h / 9h / 6h → 47h / 10h / 5h",
+    "9h / 6h → 10h / 5h"
+  ],
+  "neowork_bug_source": "User-reported experience; no independent product diagnosis",
+  "live_customer_work_executed": false
+}
