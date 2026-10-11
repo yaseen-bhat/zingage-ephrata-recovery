@@ -70,7 +70,7 @@ export const actions = [
  ['D11',7,D,'Ephrata',1,'Review morning 3','Previous sample / logs','Exceptions routed to owner'],
  ['D12',8,D,'Ephrata',1,'Review morning 4','Previous sample / logs','Exceptions routed to owner'],
  ['D13',9,D,'Ephrata',1,'Review morning 5','Previous sample / logs','Complete sample or reset reason'],
- ['D14',9,D,'Durant',0.5,'Deactivate WellSky/Riley/Casey on agreed final day','Export handoff; approved documented checklist','Disconnected / disabled evidence'],
+ ['D14',9,D,'Durant',0.5,'Deactivate WellSky/Riley/Casey on agreed final day','Export handoff; approved checklist; authorized Sep 18 cutoff confirmed','Disabled evidence at authorized cutoff; no early service end'],
  ['D15',10,D,'Ephrata',1,'Demonstrate exception intake and evidence retrieval','Receiving-owner runbook','Independent handling or remaining dependency'],
  ['N01',2,N,'Ephrata',3,'Bounded routing config review and controlled tests','Approved roster; call trace; agreed recipients','Before/after config, routing/boundary evidence'],
  ['N02',3,N,'Ephrata',3,'WellSky audit: event, mapping, permission, write','Affected IDs; event and write access','End-to-end trace and technical findings'],

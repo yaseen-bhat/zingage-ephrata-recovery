@@ -21,6 +21,8 @@
 
 All dates below other than existing Durant commitments and the customer's board date are internal planning dates. Customer-facing language must call them checkpoints or proposals, not guaranteed repair milestones.
 
+Before Durant deactivation, Jordan confirms the authorized September 18 service cutoff within the documented exit plan; Diego preserves service until that cutoff. The source specifies the date, not a time of day. A cutoff that changes the agreed final service date requires approval through the Head.
+
 ## Resource envelope
 
 Ephrata has 47 scheduled hours: Head 4, Priya 20, Jordan 4, Diego 10, Nate 9. Cross-account coordination is budgeted separately: Head 0.5, Priya 3, Jordan 2. There is no added engineer and no staffed weekend or overnight monitoring shift. The unallocated 30 nonengineering hours across the three accounts may absorb work only after the Head reassigns a named owner/date and the workbook checks pass. Nate's other 15 hours remain available to the wider account book, not to this recovery without escalation.

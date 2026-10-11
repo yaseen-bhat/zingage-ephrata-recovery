@@ -53,3 +53,13 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** Make the framework usable as an operating plan and preserve the user's source context and own working draft. Keep artifact checks distinct from live deployment results.
 
 **Validation:** Revision-guarded native edit succeeded. Readback matched all 61 authored paragraphs and all eleven step headings. Before/after text, indexes, and heading styles matched for the first tab and original framework. No duplicate native document or attached Library-file edit. The completed playbook includes a September 18 service-cutoff confirmation before Durant deactivation; this execution detail will also be reflected in the local handoff and workbook before packaging.
+
+## 006 — October 11, 2026, 1:48 PM PDT — Protect Durant's final-day service cutoff
+
+**Files:** `ephrata_handoff.md`, `build/plan.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`.
+
+**Change:** Require confirmation of the authorized September 18 cutoff before Durant's documented deactivation and retain evidence that service was not ended early. Reflect the same prerequisite in the local handoff and workbook as in the native playbook. No hours or dates changed.
+
+**Why:** The record supplies a final service date, but no time of day. Avoid treating a scheduled deactivation date as permission to stop service before the authorized cutoff.
+
+**Validation:** Rebuilt the affected workbook. The same twelve mutation tests and XLSX export/reimport passed, with no formula errors. Account totals remain 47h Ephrata, 10h Durant, 5h Medford, 5.5h shared coordination, and 14h protected coverage.
