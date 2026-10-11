@@ -21,3 +21,7 @@ The sourced limits are 7.5 Head hours, 61 combined strategist hours, 34 CSM hour
 `CHANGELOG.md` records each meaningful change, affected files, rationale, and validation. Each change group is committed separately so its preceding version can be recovered. `references/` contains unchanged copies of the three supplied Markdown files; the originals are untouched. `build/` holds the workbook's reproducible inputs and builder. `verification/` records the checks actually performed.
 
 Source and artifact copies are for the private repository. Customer communication in the handoff consists of unsent drafts.
+
+## Rebuild and verification
+
+The workbook is authored with Codex's bundled `@oai/artifact-tool` runtime. With that dependency available, run `build/build_workbook.mjs` using its bundled Node executable. The builder recalculates the workbook, tests representative input changes and restores them, exports and reimports the XLSX, and produces visual previews. Previews and dependencies are not committed. Verification results are committed in `verification/`.

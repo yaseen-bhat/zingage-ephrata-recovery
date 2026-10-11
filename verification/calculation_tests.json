@@ -1,0 +1,109 @@
+{
+  "checkedAt": "2026-10-11T20:36:01.849Z",
+  "engine": "@oai/artifact-tool",
+  "sourceTotals": {
+    "Ephrata": 55,
+    "Portfolio": 5.5,
+    "Durant": 10,
+    "Medford": 5,
+    "Coverage": 14
+  },
+  "personTotals": {
+    "Head of Deployment & Customer Ops": 6.5,
+    "Priya Chandrasekaran": 31,
+    "Jordan Kwan": 15,
+    "Diego Marsh": 28,
+    "Nate Osei": 9
+  },
+  "baseChecks": [
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK",
+    "OK"
+  ],
+  "tests": [
+    {
+      "name": "Engineering 10h triggers escalation and daily overage",
+      "observed": {
+        "pass": true,
+        "capStatus": "ESCALATE: engineering cap",
+        "dailyFlags": 1
+      }
+    },
+    {
+      "name": "Queue coverage 13h triggers gap",
+      "observed": {
+        "pass": true,
+        "status": "GAP: protect queue hours",
+        "coverage": 13
+      }
+    },
+    {
+      "name": "Head capacity decrease triggers window conflict",
+      "observed": {
+        "pass": true,
+        "status": "OVER CAPACITY"
+      }
+    },
+    {
+      "name": "Priya Day 1 cap decreased triggers daily conflict",
+      "observed": {
+        "pass": true,
+        "status": "OVER"
+      }
+    },
+    {
+      "name": "Done without actual evidence remains flagged",
+      "observed": {
+        "pass": true,
+        "status": "EVIDENCE"
+      }
+    },
+    {
+      "name": "Blocked without a next step remains flagged",
+      "observed": {
+        "pass": true,
+        "status": "NEXT STEP"
+      }
+    },
+    {
+      "name": "Blank capacity is not treated as valid zero",
+      "observed": {
+        "pass": true,
+        "status": "MISSING INPUT"
+      }
+    },
+    {
+      "name": "Task outside ten-day window is flagged",
+      "observed": {
+        "pass": true,
+        "rowStatus": "INPUT",
+        "milestoneStatus": "MISSING: proposal date"
+      }
+    },
+    {
+      "name": "Unauthorized final-service-date change is exposed",
+      "observed": {
+        "pass": true,
+        "sourceStatus": "REVIEW: source boundary",
+        "exitStatus": "ESCALATE: exit date"
+      }
+    },
+    {
+      "name": "Zero coverage is distinct from a missing value",
+      "observed": {
+        "pass": true,
+        "gapStatus": "GAP: protect queue hours",
+        "rowStatus": "OK"
+      }
+    }
+  ],
+  "roundTrip": "Exported XLSX reimported; totals and base checks passed. Excel desktop was not opened."
+}
