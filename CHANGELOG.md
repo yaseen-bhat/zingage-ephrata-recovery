@@ -2,7 +2,7 @@
 
 Times use America/Los_Angeles. Git history supplies exact commit times and file diffs. Entries describe meaningful file changes, including corrections made during verification.
 
-## 001 — October 11, 2026, 1:21 PM PDT — Establish evidence and execution baseline
+## 001 — October 11, 2026, 1:22 PM PDT — Establish evidence and execution baseline
 
 **Files:** `ephrata_diagnosis.md`, `ephrata_handoff.md`, `README.md`, `.gitignore`, `references/*.md`.
 
@@ -24,7 +24,7 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Ten meaningful mutation tests passed: engineering overage, coverage reduction, window capacity reduction, daily capacity reduction, missing evidence, blocked-without-next-step, missing capacity, out-of-window work, changed final service date, and zero coverage. No formula errors were found. XLSX export/reimport preserved the totals and base checks. Excel desktop was not opened. Visual review identified quarter-hour rounding and a need to strengthen calendar-sequence guards; these corrections follow in entry 003.
 
-## 003 — October 11, 2026, 1:40 PM PDT — Correct precision and calendar guards
+## 003 — October 11, 2026, 1:39 PM PDT — Correct precision and calendar guards
 
 **Files:** `build/build_workbook.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`, `.gitignore`.
 
@@ -34,7 +34,7 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Twelve mutation tests passed, including duplicate-date and increased-source-capacity cases. No formula errors. XLSX export/reimport passed. Reviewed rendered views from every tab, including initial and final schedule sections; changed hour precision and date separation are legible. Reviewed all source references. No account allocation changed in this entry.
 
-## 004 — October 11, 2026, 1:44 PM PDT — Adopt the approved leaner observation allocation
+## 004 — October 11, 2026, 1:43 PM PDT — Adopt the approved leaner observation allocation
 
 **Files:** `ephrata_diagnosis.md`, `ephrata_handoff.md`, `build/plan.mjs`, `build/build_workbook.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`, `verification/capacity_inspection.ndjson`.
 
@@ -54,7 +54,7 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Revision-guarded native edit succeeded. Readback matched all 61 authored paragraphs and all eleven step headings. Before/after text, indexes, and heading styles matched for the first tab and original framework. No duplicate native document or attached Library-file edit. The completed playbook includes a September 18 service-cutoff confirmation before Durant deactivation; this execution detail will also be reflected in the local handoff and workbook before packaging.
 
-## 006 — October 11, 2026, 1:48 PM PDT — Protect Durant's final-day service cutoff
+## 006 — October 11, 2026, 1:47 PM PDT — Protect Durant's final-day service cutoff
 
 **Files:** `ephrata_handoff.md`, `build/plan.mjs`, `ten_day_operating_plan.xlsx`, `verification/calculation_tests.json`.
 
@@ -64,7 +64,7 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Rebuilt the affected workbook. The same twelve mutation tests and XLSX export/reimport passed, with no formula errors. Account totals remain 47h Ephrata, 10h Durant, 5h Medford, 5.5h shared coordination, and 14h protected coverage.
 
-## 007 — October 11, 2026, 1:50 PM PDT — Package and verify the submission snapshot
+## 007 — October 11, 2026, 1:48 PM PDT — Package and verify the submission snapshot
 
 **Files:** `ephrata_recovery_package.zip`, `build/package_release.py`, `verification/release_checks.json`, `README.md`.
 
@@ -73,3 +73,27 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 **Why:** Deliver a concrete submission package that can be traced to this repository version and checked independently. Keep supporting reference/build files outside the required submission archive.
 
 **Validation:** ZIP names, CRCs, and exact embedded bytes passed. All three source copies match the unchanged Downloads originals. The exported workbook has four named tabs and 507 formulas; calculation mode is not manual. Twelve input-change tests and eleven base checks passed. Native Doc readback matched the playbook and confirmed both existing tabs preserved. Reviewed the final cutoff prerequisite/evidence cells for legibility. Confirmed the GitHub repository is private with `main` as default. Excel desktop and live customer workflows were not executed. This commit is the submission snapshot; the final push is verified against its commit ID.
+
+## 008 — October 11, 2026, 1:49 PM PDT — Align update times with Git history
+
+**Files:** `CHANGELOG.md`.
+
+**Change:** Corrected the minute labels for entries 001, 003, 004, 006, and 007 to their actual commit minute and added the exact commit map below. No deliverable, allocation, archive, or native document changed.
+
+**Why:** Use recorded Git times for traceability instead of estimated drafting times.
+
+**Validation:** Read the local Git history and verified that the submission snapshot `a80c493545b02dbecb73e2bcde55aab7be251582` matches the remote `main` commit. The ZIP remains the verified package from entry 007.
+
+## Commit map
+
+| Entry | Commit | Committed at (PDT) |
+| --- | --- | --- |
+| 001 | `4e6693b` | October 11, 2026, 1:22:18 PM |
+| 002 | `7052336` | October 11, 2026, 1:37:26 PM |
+| 003 | `0066a20` | October 11, 2026, 1:39:57 PM |
+| 004 | `6cde895` | October 11, 2026, 1:43:24 PM |
+| 005 | `6223d4c` | October 11, 2026, 1:46:22 PM |
+| 006 | `f7f7b91` | October 11, 2026, 1:47:44 PM |
+| 007 | `a80c493` | October 11, 2026, 1:48:43 PM |
+
+Entry 008 is the commit containing this map; its exact ID and time are available in Git history. The submission archive is unchanged from entry 007.
