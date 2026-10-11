@@ -1,4 +1,4 @@
-"""Package the three required deliverables and verify their exact archive bytes."""
+"""Package the deliverables, narrative, and linked supporting material."""
 
 from datetime import datetime, timezone
 from hashlib import sha256
@@ -64,27 +64,26 @@ for name, payload in payloads.items():
         text = payload.decode("utf-8")
         assert "47" in text and "proposed" in text.lower()
 
-# Stable ZIP entry times keep identical artifact bytes reproducible.
-with ZipFile(PACKAGE, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
-    for name in DELIVERABLES:
-        entry = ZipInfo(name, date_time=(2026, 10, 11, 0, 0, 0))
-        entry.compress_type = ZIP_DEFLATED
-        entry.external_attr = 0o644 << 16
-        archive.writestr(entry, payloads[name], compress_type=ZIP_DEFLATED, compresslevel=9)
-
-with ZipFile(PACKAGE) as archive:
-    assert archive.namelist() == DELIVERABLES
-    assert archive.testzip() is None
-    assert all(archive.read(name) == payloads[name] for name in DELIVERABLES)
+support = ["README.md", "CHANGELOG.md"]
+for directory in ["references", "build", "verification"]:
+    for item in sorted((ROOT / directory).iterdir()):
+        if item.is_file() and item.name not in {"release_checks.json", "package_checksum.json"}:
+            support.append(item.relative_to(ROOT).as_posix())
+for name in support:
+    payloads[name] = (ROOT / name).read_bytes()
+assert "references/fde_thought_process.txt" in payloads
+assert not any("node_modules" in name or "previews" in name or name.startswith("~$") for name in payloads)
 
 report = {
     "checked_at": datetime.now(timezone.utc).isoformat(),
     "package": PACKAGE.name,
-    "package_sha256": digest(PACKAGE.read_bytes()),
-    "package_bytes": PACKAGE.stat().st_size,
-    "required_files_at_root_only": True,
+    "required_deliverables_at_root": True,
+    "updated_readme_included": True,
+    "linked_supporting_material_included": True,
+    "payload_hashes_exclude_this_manifest": True,
     "crc_and_exact_bytes_passed": True,
-    "deliverables": [{"name": name, "bytes": len(payload), "sha256": digest(payload)} for name, payload in payloads.items()],
+    "deliverables": [{"name": name, "bytes": len(payloads[name]), "sha256": digest(payloads[name])} for name in DELIVERABLES],
+    "supporting_files": [{"name": name, "bytes": len(payloads[name]), "sha256": digest(payloads[name])} for name in support],
     "allocation_hours": expected_totals,
     "nonengineering_contingency_hours": 30,
     "engineering_hours_preserved_for_wider_book": 15,
@@ -99,4 +98,40 @@ report = {
     "google_doc_readback_passed": True,
 }
 (ROOT / "verification/release_checks.json").write_text(json.dumps(report, indent=2) + "\n")
-print(json.dumps({key: report[key] for key in ["package", "package_sha256", "package_bytes", "required_files_at_root_only", "crc_and_exact_bytes_passed", "mutation_tests_passed", "formula_count_in_export"]}, indent=2))
+payloads["verification/release_checks.json"] = (ROOT / "verification/release_checks.json").read_bytes()
+
+# The archive contains the manifest. Its own hash lives outside the archive
+# to avoid a self-referential checksum.
+with ZipFile(PACKAGE, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
+    for name, payload in payloads.items():
+        entry = ZipInfo(name, date_time=(2026, 10, 11, 0, 0, 0))
+        entry.compress_type = ZIP_DEFLATED
+        entry.external_attr = 0o644 << 16
+        archive.writestr(entry, payload, compress_type=ZIP_DEFLATED, compresslevel=9)
+
+with ZipFile(PACKAGE) as archive:
+    assert archive.namelist() == list(payloads)
+    assert archive.testzip() is None
+    assert all(archive.read(name) == payload for name, payload in payloads.items())
+    manifest = json.loads(archive.read("verification/release_checks.json"))
+    for item in manifest["deliverables"] + manifest["supporting_files"]:
+        assert digest(archive.read(item["name"])) == item["sha256"]
+    import re
+    for target in re.findall(r"\]\(([^)]+)\)", archive.read("README.md").decode("utf-8")):
+        if target.startswith("https://"):
+            continue
+        assert target in payloads or any(name.startswith(target.rstrip("/") + "/") for name in payloads), target
+
+checksum = {
+    "checked_at": report["checked_at"],
+    "package": PACKAGE.name,
+    "package_sha256": digest(PACKAGE.read_bytes()),
+    "package_bytes": PACKAGE.stat().st_size,
+    "archive_file_count": len(payloads),
+    "required_deliverables_at_root": True,
+    "updated_readme_included": True,
+    "all_embedded_bytes_and_manifest_hashes_verified": True,
+    "all_local_readme_links_resolve_inside_archive": True,
+}
+(ROOT / "verification/package_checksum.json").write_text(json.dumps(checksum, indent=2) + "\n")
+print(json.dumps(checksum, indent=2))

@@ -96,6 +96,16 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Condensed 4,848 source words to 1,548 README words. Read the exported workbook: all 69 work records match the build inputs and remain Planned; account totals, person totals, 30h reserve, and eleven base checks match. Confirmed the twelve prior input-change tests passed. Cross-checked memo owners, dates, authority boundaries, and acceptance conditions. All nine local README links resolve. The source copy matches the attachment exactly. ZIP hash and all embedded deliverable bytes remain unchanged and valid. No customer operation, new allocation, or Google Doc edit was performed in this change.
 
+## 010 — October 11, 2026, 2:38 PM PDT — Refresh the downloadable submission with the narrative
+
+**Files:** `README.md`, `build/package_release.py`, `verification/readme_consistency.json`, `verification/release_checks.json`, `verification/package_checksum.json`, `ephrata_recovery_package.zip`.
+
+**Change:** Extend the archive to include the rewritten README and its linked references, change log, build materials, and verification records alongside the three required deliverables. Update the README's package description and preserve the earlier three-file checksum as explicitly historical evidence. Include a payload-hash manifest in the ZIP and store the ZIP's own checksum separately to avoid a self-referential hash. Exclude temporary Excel files, dependencies, previews, and Git metadata.
+
+**Why:** The user requested the updated submission download after completing the reasoning narrative. A reader opening the package should receive that narrative and be able to follow its local links.
+
+**Validation:** Packaging verifies all embedded file bytes, CRCs, manifest hashes, required root-level deliverables, and local README links. The operating allocations and the three core deliverables are unchanged from the approved result. No new workbook authoring or live customer operation is performed.
+
 ## Commit map
 
 | Entry | Commit | Committed at (PDT) |

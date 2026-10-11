@@ -90,7 +90,7 @@ AI produced and versioned the package, ran twelve changed-input tests and formul
 | [Diagnosis](ephrata_diagnosis.md) | Evidence, hypotheses, uncertainty, tradeoffs, and proposed proof of relief |
 | [Operating workbook](ten_day_operating_plan.xlsx) | Person/day allocations, work log, editable inputs, and live checks |
 | [Execution handoff](ephrata_handoff.md) | Sequence, owners, dependencies, customer drafts, and blocked-work handling |
-| [Submission package](ephrata_recovery_package.zip) | Exactly the three required deliverables at its root |
+| [Submission package](https://github.com/yaseen-bhat/zingage-ephrata-recovery/blob/main/ephrata_recovery_package.zip) | The three required deliverables, this README, and supporting references, change log, build materials, and verification records |
 
 The [full thought process](references/fde_thought_process.txt), three account/capacity references in [references/](references/), and [Google Doc framework and playbook](https://docs.google.com/document/d/1w_PuN2WxMAgreZP6yWOCIpCCSME-YPLaa43CS9UbwOg) provide the longer context. The [update log](CHANGELOG.md) and Git history trace each meaningful change. [Verification records](verification/) show the checks performed; [build materials](build/) preserve the workbook inputs, builder, and packaging process.
 

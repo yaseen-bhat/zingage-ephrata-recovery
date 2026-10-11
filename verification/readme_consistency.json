@@ -11,8 +11,8 @@
   },
   "localLinksVerified": 9,
   "originalThoughtProcessPreserved": true,
-  "submissionFilesStillMatchArchive": true,
-  "packageSha256": "db072370baf88217134612a8c86bd5d9db1f0d6d4d39ffdbcc3dae6899a30e4b",
+  "coreDeliverablesVerifiedAgainstPreviousThreeFilePackage": true,
+  "previousThreeFilePackageSha256": "db072370baf88217134612a8c86bd5d9db1f0d6d4d39ffdbcc3dae6899a30e4b",
   "workbookReadback": {
     "accountHours": [
       47,

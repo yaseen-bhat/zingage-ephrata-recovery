@@ -1,9 +1,10 @@
 {
-  "checked_at": "2026-10-11T20:47:16.836712+00:00",
+  "checked_at": "2026-10-11T21:38:34.722239+00:00",
   "package": "ephrata_recovery_package.zip",
-  "package_sha256": "db072370baf88217134612a8c86bd5d9db1f0d6d4d39ffdbcc3dae6899a30e4b",
-  "package_bytes": 43042,
-  "required_files_at_root_only": true,
+  "required_deliverables_at_root": true,
+  "updated_readme_included": true,
+  "linked_supporting_material_included": true,
+  "payload_hashes_exclude_this_manifest": true,
   "crc_and_exact_bytes_passed": true,
   "deliverables": [
     {
@@ -20,6 +21,83 @@
       "name": "ephrata_handoff.md",
       "bytes": 16588,
       "sha256": "ef450710159af78d27a8407bf00c445ad1397828f10179eccf040855e6c86dd0"
+    }
+  ],
+  "supporting_files": [
+    {
+      "name": "README.md",
+      "bytes": 11202,
+      "sha256": "ea7648428cb70302d48233ef2c38cf4203c7f3e73bbf493e95e69eaa8012a5e1"
+    },
+    {
+      "name": "CHANGELOG.md",
+      "bytes": 13544,
+      "sha256": "33bd028af29f7563badd3178165471e1fa9a72d3455035c548a37d7866230529"
+    },
+    {
+      "name": "references/Deployment team capacity and decision boundaries for the ten-business-day window.md",
+      "bytes": 3921,
+      "sha256": "d3508402245232ae5bd75f33a5cb296a8fe598f9fd5dd2e18762cedd175ba69e"
+    },
+    {
+      "name": "references/Senior Helpers Ephrata \u2014 Account History.md",
+      "bytes": 8452,
+      "sha256": "86b71bed69fd57561cddd0d9c9c1f4fc7edc3e8a3e8539273b422f6f9fc5843f"
+    },
+    {
+      "name": "references/Visiting Angels Durant and Affordable at Home Care Medford's account histories.md",
+      "bytes": 5910,
+      "sha256": "c01b0b2fd2c0edc8d4ea7290701875c6c0a28d51f490510b122ed26694ff0ab3"
+    },
+    {
+      "name": "references/fde_thought_process.txt",
+      "bytes": 33797,
+      "sha256": "9e11dabdc70efebf2e78b5dc6076df74976ec10da36e6f79806f38da45ea5f6d"
+    },
+    {
+      "name": "build/build_workbook.mjs",
+      "bytes": 20097,
+      "sha256": "26379ceef9a1c20279699b348a5b79baac510b6d7df3e47f2cf313eb5673cf27"
+    },
+    {
+      "name": "build/google_doc_playbook.json",
+      "bytes": 18094,
+      "sha256": "8202db9c9c98a322d08e250b6e0d448562c947d9c92fd209953e36bbdb8dd5f7"
+    },
+    {
+      "name": "build/package_release.py",
+      "bytes": 6517,
+      "sha256": "9ce4e6ce56abd75cd12256c60700c58c2005f69843c011c71b869e0c3ad20ed2"
+    },
+    {
+      "name": "build/plan.mjs",
+      "bytes": 10299,
+      "sha256": "d0621f4a8c76bf4e976f47c7968f8c690b89dcbeb3160c528b8205cc9d42cb15"
+    },
+    {
+      "name": "verification/calculation_tests.json",
+      "bytes": 2781,
+      "sha256": "b7c9292a293da284c663681401fff281aa6ae4a5739308711b35063966df793a"
+    },
+    {
+      "name": "verification/capacity_inspection.ndjson",
+      "bytes": 1421,
+      "sha256": "bc7328e38f9481252a5a007a6837bff141e1f676b38f01b991033353f2d99bec"
+    },
+    {
+      "name": "verification/formula_error_scan.ndjson",
+      "bytes": 60,
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146"
+    },
+    {
+      "name": "verification/google_doc_update.json",
+      "bytes": 1097,
+      "sha256": "f7dfbd03a3669ec8c16fe574584ee094146b1728049858e09b5b82961840150a"
+    },
+    {
+      "name": "verification/readme_consistency.json",
+      "bytes": 1678,
+      "sha256": "8bab6c64c3c0160ec0c86206e972d217ad8ef1e9c7b091025210afd3b1c00f22"
     }
   ],
   "allocation_hours": {
