@@ -116,6 +116,14 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** Revision-guarded native edit and readback passed. The four new provenance paragraphs matched exactly; the existing nonempty framework paragraphs matched after the two intended allocation corrections. Refresh the README consistency record and package manifest using this latest Doc revision. Packaging checks embedded bytes, hashes, CRCs, required deliverables, and local links. No operating allocation or core deliverable changed; no live customer action was performed.
 
+## 012 — October 11, 2026, 2:57 PM PDT — Make the repository public for sharing
+
+**External setting / files:** GitHub repository visibility; `CHANGELOG.md`, refreshed `ephrata_recovery_package.zip`, `verification/release_checks.json`, `verification/package_checksum.json`.
+
+**Change:** Changed `yaseen-bhat/zingage-ephrata-recovery` from private to public at the user's explicit request. Share URL: https://github.com/yaseen-bhat/zingage-ephrata-recovery. Refresh the packaged change log and verification manifest so the downloadable package includes this update.
+
+**Validation:** GitHub returned `visibility: PUBLIC` and `isPrivate: false`. All core deliverables and allocations remain unchanged. Archive bytes, CRCs, manifest hashes, and README links are verified by the packaging checks.
+
 ## Commit map
 
 | Entry | Commit | Committed at (PDT) |

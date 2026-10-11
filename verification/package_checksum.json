@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-10-11T21:51:11.222466+00:00",
+  "checked_at": "2026-10-11T21:57:21.105564+00:00",
   "package": "ephrata_recovery_package.zip",
-  "package_sha256": "fcd0bd02b799c1dc34dbe847f16e0b83978c36b7dd05b5e7e5c8aa2ace249e4e",
-  "package_bytes": 115084,
+  "package_sha256": "e9b68a6f2e38221c17c9d75acc405574a603eabc9ee99de16b10fb756732bfd3",
+  "package_bytes": 115310,
   "archive_file_count": 21,
   "required_deliverables_at_root": true,
   "updated_readme_included": true,

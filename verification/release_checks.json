@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-11T21:51:11.222466+00:00",
+  "checked_at": "2026-10-11T21:57:21.105564+00:00",
   "package": "ephrata_recovery_package.zip",
   "required_deliverables_at_root": true,
   "updated_readme_included": true,
@@ -31,8 +31,8 @@
     },
     {
       "name": "CHANGELOG.md",
-      "bytes": 15584,
-      "sha256": "c1c26b827b4c8c793c30fe5f58608bdb784a6229a6f5436dd36a064418393097"
+      "bytes": 16380,
+      "sha256": "c634b675e2266d1606a6e583024bf7e571ee39ba9f3e00de7f90e3cbb47a0781"
     },
     {
       "name": "references/Deployment team capacity and decision boundaries for the ten-business-day window.md",
