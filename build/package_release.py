@@ -42,6 +42,11 @@ provenance = json.loads(provenance_path.read_text()) if provenance_path.exists()
 if provenance:
     assert provenance["provenance_readback_passed"]
     assert provenance["existing_framework_preserved_except_two_allocation_corrections"]
+feedback_path = ROOT / "verification/feedback_corrections.json"
+feedback = json.loads(feedback_path.read_text()) if feedback_path.exists() else None
+if feedback:
+    assert feedback["google_doc"]["google_doc_readback_verified"]
+    assert feedback["google_doc"]["post_evaluation_note_appended"]
 
 references = []
 for reference in sorted((ROOT / "references").glob("*.md")):
@@ -99,9 +104,10 @@ report = {
     "native_excel_opened": False,
     "live_customer_workflows_executed": False,
     "references": references,
-    "google_doc_revision": provenance["revision_id"] if provenance else document["revision_id"],
+    "google_doc_revision": feedback["google_doc"]["google_doc_revision"] if feedback else provenance["revision_id"] if provenance else document["revision_id"],
     "google_doc_readback_passed": True,
     "google_doc_process_provenance_verified": bool(provenance),
+    "post_evaluation_corrections_included": bool(feedback),
 }
 (ROOT / "verification/release_checks.json").write_text(json.dumps(report, indent=2) + "\n")
 payloads["verification/release_checks.json"] = (ROOT / "verification/release_checks.json").read_bytes()

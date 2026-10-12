@@ -124,6 +124,16 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 
 **Validation:** GitHub returned `visibility: PUBLIC` and `isPrivate: false`. All core deliverables and allocations remain unchanged. Archive bytes, CRCs, manifest hashes, and README links are verified by the packaging checks.
 
+## 013 — October 11, 2026, 9:16 PM PDT — Address the evaluation's routing and customer-checkpoint omissions
+
+**Files:** `ephrata_diagnosis.md`, `ephrata_handoff.md`, `README.md`, `build/package_release.py`, `verification/readme_consistency.json`, `verification/feedback_corrections.json`, refreshed package and release/checksum records; native Google Doc feedback note.
+
+**Change:** Explain why the August 14 test to Denise, while valid for her documented on-call week, did not exercise the change to Marcus or the overnight/weekend conditions of his later reported failure. Make the runnable test matrix require Marcus-specific and effective-boundary evidence, with an explicit gap if an authorized controlled method is unavailable. Put Friday, September 11, 2026 directly in Carol Ann's initial verification-check-in draft; the time remains subject to her confirmation and no repair date is promised.
+
+**Why:** The user supplied evaluation feedback identifying these two omissions. These are post-evaluation corrections; the already-submitted version remains preserved in Git history.
+
+**Validation:** Reread the Ephrata source: Denise was documented on call during the August 14 test; the September 8 recurrence explicitly named Marcus. Check-in date matches the already-budgeted September 11 Priya conversation. Keep 47h/10h/5h, support coverage, engineering cap, and workbook bytes unchanged. The initial native Doc append failed; readback confirmed no mutation, and an indexed, revision-guarded retry succeeded. The appended feedback note and unchanged preceding text were verified. Packaging verifies current memo/README bytes, hashes, CRCs, and local links. All live tests and customer communications remain proposed.
+
 ## Commit map
 
 | Entry | Commit | Committed at (PDT) |
@@ -136,4 +146,4 @@ Times use America/Los_Angeles. Git history supplies exact commit times and file 
 | 006 | `f7f7b91` | October 11, 2026, 1:47:44 PM |
 | 007 | `a80c493` | October 11, 2026, 1:48:43 PM |
 
-Entry 008 is the commit containing this map; its exact ID and time are available in Git history. The submission archive is unchanged from entry 007.
+Entry 008 introduced this initial commit map; later entries continue the change history above. Exact IDs and times are available in Git history. Later package revisions are recorded in their corresponding entries.

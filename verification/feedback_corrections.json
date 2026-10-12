@@ -1,0 +1,42 @@
+{
+  "revision_type": "Post-evaluation correction",
+  "routing_test": {
+    "record": "August 14, 2026, 11:20 a.m.: Denise was the documented on-call recipient that week.",
+    "gap": "A successful call to Denise did not test the later weekly change to Marcus or his reported overnight/weekend case.",
+    "required_evidence": "Marcus-specific expected/actual recipient and approved effective-boundary evidence; unavailable or unrun cases remain open.",
+    "technical_cause": "Still unknown"
+  },
+  "customer_check_in": {
+    "owner": "Priya Chandrasekaran",
+    "proposed_date": "2026-09-11",
+    "weekday": "Friday",
+    "time": "To be agreed with Carol Ann",
+    "existing_work_budget": "September 11 Priya verification conversation; no added hours",
+    "repair_date_promised": false,
+    "message_sent": false
+  },
+  "allocation_hours": {
+    "Ephrata": 47,
+    "Durant": 10,
+    "Medford": 5,
+    "Portfolio": 5.5,
+    "Coverage": 14
+  },
+  "engineering_cap_hours": 9,
+  "workbook_modified": false,
+  "google_doc": {
+    "document_id": "1w_PuN2WxMAgreZP6yWOCIpCCSME-YPLaa43CS9UbwOg",
+    "tab_id": "t.0",
+    "google_doc_revision": "AHj4eMQCw7itFICaGs1qzqiOCO5TlhHLQ1KumOMc20FMOWIeki6IIxp8sg9bre5jtEQ2VD_qeHjl2omEL3xV8_BH1re6KvERqUeHxxPZ1gw",
+    "google_doc_readback_verified": true,
+    "previous_framework_text_preserved": true,
+    "post_evaluation_note_appended": true
+  },
+  "google_doc_note": [
+    "Post-evaluation clarifications — October 11, 2026",
+    "Rotation test: Denise was on call during the August 14 daytime test. Reaching her did not test the later weekly change to Marcus or his reported overnight/weekend case. The recovery needs Marcus-specific and effective-boundary evidence; unavailable or unrun cases stay open.",
+    "Customer checkpoint: Priya's initial draft now proposes a verification check-in on Friday, September 11, 2026, with the appointment time to be confirmed by Carol Ann. This is a checkpoint even if investigation remains blocked, without a repair-date guarantee.",
+    "These are corrections after evaluation. The 47h/10h/5h allocation, protected coverage, and nine-hour engineering cap are unchanged. Live tests and customer communications remain proposed."
+  ],
+  "connector_issue": "Initial append returned an error. Readback confirmed no change; indexed, revision-guarded retry then succeeded."
+}

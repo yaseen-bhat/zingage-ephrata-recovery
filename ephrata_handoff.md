@@ -52,11 +52,14 @@ Maintain one incident/test record per case with: ID; reported source; caregiver/
 | Reported affected caregiver with missing app confirmation | Document product's intended automatic behavior and exception path; no silent reliance on Carol Ann | Not run; expected trigger unknown |
 | Permission/write/mapping failure | Detect incorrect/missing state, identify owner and retry/escalation behavior supported by product | Not run |
 | Approved after-hours recipient | Correct current on-call person receives and acknowledges the agreed controlled call | Not run |
-| Weekly rotation/time-zone boundary | Approved effective roster applies on both sides of boundary | Not run |
+| Marcus's reported on-call case | Reconstruct the September-reported weekend call against the approved roster effective at that time; an agreed controlled case must select Marcus when he is the expected recipient, with receipt/acknowledgment evidence | Not run; reported timestamp and effective roster to confirm |
+| Weekly rotation/time-zone boundary | Verify expected recipient immediately before and after an approved effective boundary; cover the Denise-to-Marcus change if confirmed by the roster, rather than repeating a call to Denise | Not run |
 | Missing roster or no-answer path | Only the customer-approved existing fallback runs; unintended admin fallback is investigated | Not run; policy to confirm |
 | Customer morning and overnight/weekend sample | No required corrections or unexplained misroutes in observed eligible cases; customer reports routine checking no longer necessary | Not observed |
 
 The record's 90-second afternoon test is one past observation, not an SLA. Agree a relevant latency threshold before scoring. Natural calls may not occur in the sample; use controlled cases for coverage but explicitly retain uncertainty about sustained natural operation. If required testing cannot fit Nate's 9h, mark the unrun test and escalate its sized effort.
+
+Nate owns the routing checks in E2, Priya supplies the approved roster and incident packet, and Jordan reviews the evidence. The August 14 test reached Denise during her recorded on-call week; it did not test the weekly advance to Marcus or his reported overnight/weekend case. Confirm expected recipient and effective time before each test. If Marcus is not currently on call, use an authorized, non-disruptive controlled method only if available; otherwise record the untested case and escalate the verification gap. Do not alter the production roster or count another Denise call as proof of Marcus coverage.
 
 ## Acceptance and ongoing ownership
 
@@ -91,7 +94,7 @@ These are unsent drafts. Use actual findings and agreed check-in times before se
 
 Carol Ann, you reported the same availability and routing problems again after we told you the tickets were closed. The earlier afternoon sync and routing tests did not establish that the overnight workflow was reliably giving you your mornings back. I’m keeping the recovery open and will review the routing and availability paths separately.
 
-Could you share the two caregiver names and shift-end times, the approximate time of the weekend call, and the current approved on-call roster? I’d like to schedule a short verification check-in to review what the evidence shows and what remains unresolved. I’ll propose times for that conversation. I don’t yet have evidence to give you a reliable repair date.
+Could you share the two caregiver names and shift-end times, the approximate time of the weekend call, and the current approved on-call roster? I propose a short verification check-in on **Friday, September 11, 2026**, to review what the evidence shows and what remains unresolved. Please confirm whether that date works and your preferred time; I’ll confirm the appointment with you. We will review any unresolved issues at that check-in as well. I don’t yet have evidence to give you a reliable repair date.
 
 ### Ephrata checkpoint — Priya, proposed Sep 11 conversation
 

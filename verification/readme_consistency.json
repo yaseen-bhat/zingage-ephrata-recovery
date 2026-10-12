@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-10-11T21:51:11.133353+00:00",
-  "readmeWords": 1626,
+  "checkedAt": "2026-10-12T04:21:49.735635+00:00",
+  "readmeWords": 1732,
   "sourceWords": 4642,
   "allocationTable": {
     "Ephrata": "47",
@@ -43,5 +43,11 @@
     "draftAllocationDiscrepancy": "Retained approved 10h Durant / 5h Medford instead of draft 9h / 6h; no operating plan reallocation"
   },
   "deliverablesEdited": false,
-  "latestFrameworkSnapshotPreserved": true
+  "latestFrameworkSnapshotPreserved": true,
+  "postEvaluationCorrections": {
+    "datedCustomerDraft": true,
+    "rotationGapExplained": true,
+    "marcusSpecificTestIncluded": true,
+    "workbookUnchanged": true
+  }
 }

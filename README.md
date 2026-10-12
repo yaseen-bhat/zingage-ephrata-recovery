@@ -20,6 +20,8 @@ The same team had two other obligations: complete Visiting Angels Durant's agree
 
 The records showed a valid integration token, a successful afternoon manual re-sync, and a daytime routing test that reached Denise. They also showed historical roster drift, ticket closure pending customer confirmation, and a later recurrence of both symptoms. Those facts supported investigation, but they did not establish reliable overnight behavior.
 
+The rotation gap is specific: Denise was on call during the August 14 daytime test. That test never exercised the later change to Marcus or the overnight/weekend conditions of the September complaint. Denise receiving a call could not verify that Marcus would receive one during his approved on-call period. The recovery therefore needs a test of the expected recipient across an effective rotation boundary.
+
 The connected account and green health report measured different things from Carol Ann's experience. The clearest supported diagnosis was a verification gap: narrow technical checks had been treated as proof of the customer's original outcome.
 
 I kept that conclusion separate from the technical hypotheses. The adoption snapshot showed three of fourteen caregivers with admin-closeout patterns, but those caregivers had not been matched to the latest complaint. The current trigger, roster, failed event, and call trace remained unknown. Without a denominator, I also could not calculate a failure rate or invent a baseline for minutes of manual work.
@@ -66,6 +68,8 @@ Only the combined strategist ceiling was sourced. The proposed Priya/Jordan spli
 ## Turn the decisions into executable work
 
 The sequence starts with incident collection and calendar confirmation on September 8, followed by routing and availability investigation on September 9–11. The September 11 gate determines whether observation can begin. If ready, the team reviews five business mornings on September 14–18 and weekend evidence retrospectively, then holds the outcome review and receiving-owner demonstration on September 21. No additional overnight or weekend shift is assumed.
+
+Carol Ann's initial message explicitly proposes a verification check-in on **Friday, September 11, 2026**, with the appointment time and her availability to be confirmed. If investigation remains blocked, the proposed check-in reviews that dependency and next step; it carries no repair-date guarantee.
 
 I required named owners, prerequisites, allocated effort, expected evidence, and explicit next steps for blocked work. Priya owns Ephrata's outcome; Nate technical evidence; Diego business-hours exceptions; Jordan Durant/Medford and peer review; leadership allocation and approvals. The customer-side roster maintainer and backup still need confirmation.
 
